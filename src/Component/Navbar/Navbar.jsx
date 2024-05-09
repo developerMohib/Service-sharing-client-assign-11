@@ -11,7 +11,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { user, logOut } = useContext(AuthCustomContext);
   const navLinks = (
-    <>
+    <div className="flex items-center" >
       <NavLink className="px-1 py-1 mx-1 " to="/">
         Home
       </NavLink>
@@ -21,7 +21,7 @@ const Navbar = () => {
       {user && (
         <>
           <details className="dropdown">
-            <summary className="m-1 btn">open or close</summary>
+            <summary className="">Dashboard</summary>
             <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
               <li>
                 <Link to='/addService'> Add Service </Link>
@@ -33,7 +33,7 @@ const Navbar = () => {
                 <Link to='/booked' > Booked-Services </Link>
               </li>
               <li>
-                <Link to='/servicetodo' > Service-To-Do </Link>
+                <Link to='/todoservice' > Service-To-Do </Link>
               </li>
             </ul>
           </details>
@@ -42,7 +42,7 @@ const Navbar = () => {
       <NavLink className="px-1 py-1 mx-1 " to="/contact">
         Contact Us
       </NavLink>
-    </>
+    </div>
   );
 
   const handleLogOut = () => {

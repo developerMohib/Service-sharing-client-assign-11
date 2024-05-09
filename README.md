@@ -11,3 +11,4 @@ Currently, two official plugins are available:
 - [React-Icon](https://daisyui.com/docs/install/) React Icon
 - [React-Tooltip](https://react-tooltip.com/docs/getting-started) React Tooltip
 - [React-Proptye](https://www.npmjs.com/package/prop-types) React PropTypes
+- [React-Hot-toast](https://react-hot-toast.com/) React Hot toast 

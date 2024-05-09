@@ -1,6 +1,31 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthCustomContext } from "../../Provider/Provider";
+import toast from 'react-hot-toast';
 
 const Registration = () => {
+  const {registerUser} =useContext(AuthCustomContext) ;
+  const notifyRegister = () => toast.success('Account is created successfully');
+
+  const handleRegister = (e) => {
+    e.preventDefault() ;
+    const fromm = e.target ;
+    const email = fromm.email.value ;
+    const password = fromm.password.value ;
+    // const photo = fromm.photo.value ;
+
+
+    // user create 
+    registerUser(email, password)
+    .then(result => {
+      console.log(result.user) ;
+      notifyRegister()
+    })
+    .catch(error => {
+      console.log(error,'regiter teke eorr')
+    })
+  }
+
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)]'>
       <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
@@ -26,7 +51,7 @@ const Registration = () => {
 
             <span className='w-1/5 border-b dark:border-gray-400 lg:w-1/4'></span>
           </div>
-          <form>
+          <form onSubmit={handleRegister} >
             <div className='mt-4'>
               <label
                 className='block mb-2 text-sm font-medium text-gray-600 '

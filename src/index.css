@@ -7,3 +7,9 @@
 body{
     font-family: "Poppins", sans-serif;
 }
+
+.active{
+    /* background-color: #00ed64; */
+    
+  border-bottom: 1px solid black;
+  }

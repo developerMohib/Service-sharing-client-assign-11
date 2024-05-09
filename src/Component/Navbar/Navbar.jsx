@@ -22,7 +22,7 @@ const Navbar = () => {
         <>
           <details className="dropdown">
             <summary className="">Dashboard</summary>
-            <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+            <ul className="p-2 mt-3 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
               <li>
                 <Link to='/addService'> Add Service </Link>
               </li>
@@ -181,6 +181,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

@@ -3,30 +3,59 @@ import { FaGoogle, FaTwitter } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
 import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const Login = () => {
-    const {user,logInUser} = useContext(AuthCustomContext);
-    const notifyLogin = () => toast.success('Login successfully');
-    const handleLogin = (e) => {
-        e.preventDefault() ;
-        const fromm = e.target ;
-        const email = fromm.email.value ;
-        const password = fromm.password.value ;
-        console.log(email, password, 'email pass from from ')
+  const { user, logInUser, signInGoogle} = useContext(AuthCustomContext);
+  const notifyLogin = () => toast.success("Login successfully");
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const fromm = e.target;
+    const email = fromm.email.value;
+    const password = fromm.password.value;
+    console.log(email, password, "email pass from from ");
 
-        // login with emain pass 
-        logInUser(email, password)
-        .then(result=> {
-            console.log(result.user)
-            notifyLogin()
-        })
-        .catch(error => {
-            console.log(error)
-        })
-    
-    }
+    // login with emain pass
+    logInUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+        notifyLogin();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-    console.log(user, 'ajaia')
+  const handleGoogleLogin = () => {
+    signInGoogle()
+    .then((result) => {
+      console.log(result.user);
+      Swal.fire({
+        icon: 'success',
+        title: "success!",
+        text: 'You have logged in successfully!.'
+      });
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
+  // const handleTwitterLogin = () => {
+  //   logInWithTwitter()
+  //   .then((result) => {
+  //     console.log(result.user);
+  //     Swal.fire({
+  //       icon: 'success',
+  //       title: "success!",
+  //       text: 'You have logged in successfully!.'
+  //     });
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
+  // }
+
+  console.log(user, "ajaia");
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)]">
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
@@ -50,7 +79,10 @@ const Login = () => {
             Welcome back!
           </p>
 
-          <div className="flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 ">
+          <div
+            onClick={handleGoogleLogin}
+            className="flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 "
+          >
             <div className="flex items-center justify-center">
               <div className="px-4 py-2">
                 <FaGoogle> </FaGoogle>
@@ -60,7 +92,7 @@ const Login = () => {
               </span>
             </div>
           </div>
-          <div className="flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 ">
+          {/* <div onClick={handleTwitterLogin} className="flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 ">
             <div className="flex items-center justify-center">
               <div className="px-4 py-2">
                 <FaTwitter />
@@ -69,7 +101,7 @@ const Login = () => {
                 Sign in with Twitter
               </span>
             </div>
-          </div>
+          </div> */}
 
           <div className="flex items-center justify-between mt-4">
             <span className="w-1/5 border-b  lg:w-1/4"></span>
@@ -80,7 +112,7 @@ const Login = () => {
 
             <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/4"></span>
           </div>
-          <form onSubmit={handleLogin} >
+          <form onSubmit={handleLogin}>
             <div className="mt-4">
               <label
                 className="block mb-2 text-sm font-medium text-gray-600 "

@@ -15,17 +15,28 @@ const Navbar = () => {
       <NavLink className="px-1 py-1 mx-1 " to="/">
         Home
       </NavLink>
-      <NavLink className="px-1 py-1 mx-1 " to="/touristSpot">
-        All Tourists Spots
-      </NavLink>
-      <NavLink className="px-1 py-1 mx-1 " to="/addSpot">
-        Add Tourists Spot
+      <NavLink className="px-1 py-1 mx-1 " to="/services">
+        Services
       </NavLink>
       {user && (
         <>
-          <NavLink className="px-1 py-1 mx-1 " to="/myList">
-            My List
-          </NavLink>
+          <details className="dropdown">
+            <summary className="m-1 btn">open or close</summary>
+            <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+              <li>
+                <Link to='/addService'> Add Service </Link>
+              </li>
+              <li>
+                <Link to='/manage' > Manage Service </Link>
+              </li>
+              <li>
+                <Link to='/booked' > Booked-Services </Link>
+              </li>
+              <li>
+                <Link to='/servicetodo' > Service-To-Do </Link>
+              </li>
+            </ul>
+          </details>
         </>
       )}
       <NavLink className="px-1 py-1 mx-1 " to="/contact">
@@ -36,12 +47,12 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     logOut()
-    .then((result) => {
-      console.log(result.user,'user log out');
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+      .then((result) => {
+        console.log(result.user, "user log out");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   useEffect(() => {
@@ -61,7 +72,6 @@ const Navbar = () => {
       setTheme("light");
     }
   };
-
 
   return (
     <div>
@@ -92,7 +102,7 @@ const Navbar = () => {
               </ul>
             </div>
             <Link to="/" className=" font-bold text-xl">
-              JOURNEY
+              Servies
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">

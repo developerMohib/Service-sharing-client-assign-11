@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaGoogle, FaTwitter } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
 import toast from "react-hot-toast";

@@ -5,13 +5,13 @@ import { RiMenuAddLine } from "react-icons/ri";
 import { Link, NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import { AuthCustomContext } from "../../Provider/Provider";
-
+import { FaBookOpenReader } from "react-icons/fa6";
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
   const [open, setOpen] = useState(false);
   const { user, logOut } = useContext(AuthCustomContext);
   const navLinks = (
-    <div className="flex items-center" >
+    <div className="" >
       <NavLink className="px-1 py-1 mx-1 " to="/">
         Home
       </NavLink>
@@ -22,7 +22,7 @@ const Navbar = () => {
         <>
           <details className="dropdown">
             <summary className="">Dashboard</summary>
-            <ul className="p-2 mt-3 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+            <ul className="p-2 mt-3 shadow menu dropdown-content z-10 bg-base-100 rounded-box w-52">
               <li>
                 <Link to='/addService'> Add Service </Link>
               </li>
@@ -102,7 +102,10 @@ const Navbar = () => {
               </ul>
             </div>
             <Link to="/" className=" font-bold text-xl">
-              Servies
+              <div className="text-center" >
+                <span  >  <FaBookOpenReader></FaBookOpenReader> </span>
+              <span className="text-orange-500" > Services </span>
+              </div>
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">

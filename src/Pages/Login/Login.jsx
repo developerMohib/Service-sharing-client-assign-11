@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
@@ -6,14 +6,16 @@ import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const { user, logInUser, signInGoogle} = useContext(AuthCustomContext);
+  const { logInUser, signInGoogle} = useContext(AuthCustomContext);
   const notifyLogin = () => toast.success("Login successfully");
+  const Navigete = useNavigate();
+  const location = useLocation() ;
+  console.log(location, 'location')
   const handleLogin = (e) => {
     e.preventDefault();
     const fromm = e.target;
     const email = fromm.email.value;
     const password = fromm.password.value;
-    console.log(email, password, "email pass from from ");
 
     // login with emain pass
     logInUser(email, password)
@@ -55,7 +57,6 @@ const Login = () => {
   //   });
   // }
 
-  console.log(user, "ajaia");
   return (
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)]">
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">

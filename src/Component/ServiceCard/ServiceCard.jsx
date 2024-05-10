@@ -11,7 +11,7 @@ const ServiceCard = () => {
       setHomeServies(data)
     })
   },[])
-  console.log(homeServices,'home card ')
+  // console.log(homeServices,'home card ')
   // service_image, service_name, service_description, service_provider, [image,name], service_price
   return (
     <div>
@@ -136,7 +136,7 @@ const ServiceCard = () => {
                   </div>
                 </div>
                 <div>
-                <Link to='/serviceDetails' > <button className="bg-green-500 btn ">view details</button> </Link>
+                <Link to={`/serviceDetails/${data?._id}`} > <button className="bg-green-500 btn ">view details</button> </Link>
                 </div>
               </div>
             </div>

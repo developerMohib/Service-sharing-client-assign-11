@@ -37,8 +37,11 @@ export const router = createBrowserRouter([
           element: <Services> </Services>,
         },
         {
-          path: "/serviceDetails",
+          path: "/serviceDetails/:id",
           element: <PrivateRoute> <ServiceDetails> </ServiceDetails> </PrivateRoute> ,
+          loader: async ({ params }) => {
+            return fetch(`http://localhost:5000/eduServices/${params.id}`);
+          },
         },
         {
           path: "/contact",

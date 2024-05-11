@@ -9,6 +9,7 @@ const ServiceDetails = () => {
     service_description,
     service_price,
     service_provider,
+    _id,
   } = detailsData;
   //   console.log(detailsData, "details page");
   return (
@@ -81,7 +82,7 @@ const ServiceDetails = () => {
                   </div>
                 </div>
                 <div>
-                  <Link className="relative inline-flex items-center px-8 py-2 overflow-hidden font-medium text-indigo-600 border border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
+                  <div className="relative inline-flex items-center px-8 py-2 overflow-hidden font-medium text-indigo-600 border border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
                     <span className="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
                     <span className="absolute right-0 flex items-center justify-start h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                       <svg
@@ -99,8 +100,8 @@ const ServiceDetails = () => {
                         ></path>
                       </svg>
                     </span>
-                    <span className="relative">Book Now</span>
-                  </Link>
+                    <Link to={`/booknow/${_id}`} > <span className="relative">Book Now</span> </Link>
+                  </div>
                 </div>
               </div>
               {/*  */}

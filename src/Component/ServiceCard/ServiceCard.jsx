@@ -17,10 +17,10 @@ const ServiceCard = () => {
     <div>
       <div className="mt-10 text-center ">
         <p className="font-light text-2xl">Find What Fascinates You</p>
-        <h1 className="md:text-5xl text-4xl md:font-extrabold font-semibold ">
+        <h1 className="md:text-4xl text-4xl md:font-extrabold font-semibold my-3 ">
           Online Lessons
         </h1>
-        <p className="text-xl font-light mt-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempori</p>
+        <p className="text-lg font-light w-1/2 mx-auto mt-5">online classes have revolutionized the way people access education, making it more convenient, accessible, and flexible than ever before.</p>
       </div>
       <div className="lg:grid grid-cols-3 gap-8 my-5 ">
         {/* <div className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md dark:bg-gray-800 my-5 ">

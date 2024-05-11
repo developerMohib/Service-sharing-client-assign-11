@@ -1,4 +1,5 @@
 
+import Blog from '../../Component/Blog/Blog';
 import Carrousel from '../../Component/Carrousel/Carrousel';
 import Filter from '../../Component/Filter/Filter';
 import ServiceCard from '../../Component/ServiceCard/ServiceCard';
@@ -9,6 +10,7 @@ const Home = () => {
             <Carrousel> </Carrousel>
             <Filter> </Filter>
             <ServiceCard> </ServiceCard>
+            <Blog> </Blog>
         </div>
     );
 };

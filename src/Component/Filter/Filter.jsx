@@ -3,7 +3,10 @@ const Filter = () => {
     <div>
       <div className="text-center mt-10 ">
         <div className="mt-10">
-          <h1 className="md:text-5xl text-4xl md:font-bold font-semibold text-center">
+          <h1 className="text-xl font-light text-center">
+          Find What Fascinates You
+          </h1>
+          <h1 className="md:text-4xl text-4xl md:font-bold font-semibold text-center my-5 ">
             Find Your Your Best Teacher
           </h1>
           <h1 className="text-2xl my-5 font-bold text-center">Find a Tutor</h1>

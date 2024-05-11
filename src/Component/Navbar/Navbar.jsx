@@ -11,7 +11,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { user, logOut } = useContext(AuthCustomContext);
   const navLinks = (
-    <div className="" >
+    <div className="">
       <NavLink className="px-1 py-1 mx-1 " to="/">
         Home
       </NavLink>
@@ -24,16 +24,16 @@ const Navbar = () => {
             <summary className="">Dashboard</summary>
             <ul className="p-2 mt-3 shadow menu dropdown-content z-10 bg-base-100 rounded-box w-52">
               <li>
-                <Link to='/addService'> Add Service </Link>
+                <Link to="/addService"> Add Service </Link>
               </li>
               <li>
-                <Link to='/manage' > Manage Service </Link>
+                <Link to="/manage"> Manage Service </Link>
               </li>
               <li>
-                <Link to='/booked' > Booked-Services </Link>
+                <Link to="/booked"> Booked-Services </Link>
               </li>
               <li>
-                <Link to='/todoservice' > Service-To-Do </Link>
+                <Link to="/todoservice"> Service-To-Do </Link>
               </li>
             </ul>
           </details>
@@ -102,9 +102,14 @@ const Navbar = () => {
               </ul>
             </div>
             <Link to="/" className=" font-bold text-xl">
-              <div className="text-center" >
-                <span  >  <FaBookOpenReader></FaBookOpenReader> </span>
-              <span className="text-orange-500" > Services </span>
+              <div className="text-center">
+                <div className="flex gap-2 ">
+                  <span>
+                    <FaBookOpenReader className="text-2xl text-orange-500" />
+                  </span>
+                  <span className="text-green-500"> Online </span>
+                </div>
+                <p className="text-orange-500">Courses</p>
               </div>
             </Link>
           </div>
@@ -184,7 +189,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };

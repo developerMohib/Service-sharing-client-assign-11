@@ -73,7 +73,7 @@ const Provider = ({children}) => {
     }
 
     // All value 
-    const userInfo = {user, loading, registerUser, signInGoogle, logInUser, logOut, updateProfileFromUser }
+    const userInfo = {user,setUser, loading, registerUser, signInGoogle, logInUser, logOut, updateProfileFromUser }
     return (
         <AuthCustomContext.Provider value={userInfo}>
             {children}

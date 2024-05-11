@@ -1,18 +1,20 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthCustomContext } from "../../Provider/Provider";
 import toast from 'react-hot-toast';
 
 const Registration = () => {
-  const {registerUser} =useContext(AuthCustomContext) ;
+  const {registerUser, updateProfileFromUser, user, setUser} =useContext(AuthCustomContext) ;
   const notifyRegister = () => toast.success('Account is created successfully');
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault() ;
     const fromm = e.target ;
+    const name = fromm.name.value ;
     const email = fromm.email.value ;
     const password = fromm.password.value ;
-    // const photo = fromm.photo.value ;
+    const photo = fromm.photo.value ;
 
 
     // user create 
@@ -20,6 +22,9 @@ const Registration = () => {
     .then(result => {
       console.log(result.user) ;
       notifyRegister()
+      updateProfileFromUser(name, photo)
+      setUser({...user, displayName: name, photoURL : photo } )
+      navigate('/')
     })
     .catch(error => {
       console.log(error,'regiter teke eorr')

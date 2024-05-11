@@ -1,8 +1,16 @@
 const Blog = () => {
   return (
-    <div className="md:grid grid-cols-3 gap-8 my-10 ">
+    <div className="bg-slate-200 p-5 my-10 rounded-lg" >
+      <div className="mt-10 text-center ">
+<p className="font-light text-2xl">Find What Fascinates You</p>
+<h1 className="md:text-4xl text-4xl md:font-extrabold font-semibold my-3 ">
+  Online Lessons
+</h1>
+<p className="text-lg font-light w-1/2 mx-auto mt-5">online classes have revolutionized the way people access education, making it more convenient, accessible, and flexible than ever before.</p>
+</div> 
+      <div className="md:grid grid-cols-3 gap-8 my-10 ">
       {/* card - 1  */}
-      <div className="max-w-screen-xl mx-auto border rounded-lg border-slate-300 ">
+      <div className="max-w-screen-xl mx-auto border rounded-lg border-slate-400 ">
         <div className="rounded overflow-hidden flex flex-col max-w-xl mx-auto">
           <a href="#">
             <img
@@ -16,11 +24,10 @@ const Blog = () => {
               href="#"
               className="font-semibold text-lg hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2"
             >
-              The Best Activewear from the Nordstrom Anniversary Sale
+              Navigating the World of Online Learning
             </a>
             <p className="text-gray-500 text-sm">
-              Today, I am covering one of my favorite parts of the Nordstrom
-              Anniversary Sale: the activewear!
+            Online classes offer flexibility in terms of time and location. Students can access course materials and lectures at their convenience, allowing them to balance their studies with other commitments.
             </p>
             <p className="mt-5 text-gray-600 text-xs">
               By
@@ -49,7 +56,7 @@ const Blog = () => {
         </div>
       </div>
       {/* card - 2  */}
-      <div className="max-w-screen-xl mx-auto border rounded-lg border-slate-300 ">
+      <div className="max-w-screen-xl mx-auto border rounded-lg border-slate-400 ">
         <div className="rounded overflow-hidden flex flex-col max-w-xl mx-auto">
           <a href="#">
             <img
@@ -63,11 +70,10 @@ const Blog = () => {
               href="#"
               className="font-semibold text-lg hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2"
             >
-              The Best Activewear from the Nordstrom Anniversary Sale
+              The Evolution of Education: Embracing Online Classes
             </a>
             <p className="text-gray-500 text-sm">
-              Today, I am covering one of my favorite parts of the Nordstrom
-              Anniversary Sale: the activewear!
+            Online classes make education more accessible to a broader range of students. People from different geographic locations or with physical disabilities can participate in classes without the need to commute to a physical campus!
             </p>
             <p className="mt-5 text-gray-600 text-xs">
               By
@@ -96,7 +102,7 @@ const Blog = () => {
         </div>
       </div>
       {/* card - 3 */}
-      <div className="max-w-screen-xl mx-auto border rounded-lg border-slate-300 ">
+      <div className="max-w-screen-xl mx-auto border rounded-lg border-slate-400 ">
         <div className="rounded overflow-hidden flex flex-col max-w-xl mx-auto">
           <a href="#">
             <img
@@ -110,11 +116,10 @@ const Blog = () => {
               href="#"
               className="font-semibold text-lg hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2"
             >
-              The Best Activewear from the Nordstrom Anniversary Sale
+              Unlocking Opportunities: The Benefits of Online Learning
             </a>
             <p className="text-gray-500 text-sm">
-              Today, I am covering one of my favorite parts of the Nordstrom
-              Anniversary Sale: the activewear!
+            Online platforms offer a wide variety of courses covering almost every subject imaginable. From academic subjects to practical skills and hobbies, there is something for everyone.!
             </p>
             <p className="mt-5 text-gray-600 text-xs">
               By
@@ -142,6 +147,7 @@ const Blog = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -17,3 +17,4 @@ Currently, two official plugins are available:
 - [React-Hot-toast](https://react-hot-toast.com/) React Hot toast 
 - [Google-Font-Poppins]() Google-Font-Poppins
 - [swiper-js](https://swiperjs.com/get-started) swipper js carrousel
+- [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter) react-simple-typewriter

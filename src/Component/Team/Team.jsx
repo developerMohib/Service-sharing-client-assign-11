@@ -3,7 +3,7 @@ import { IoLogoInstagram } from "react-icons/io5";
 const Team = () => {
   return (
     <div className="bg-gray-100 h-screen">
-      <div className="py-10 max-w-screen-lg mx-auto">
+      <div className="py-10 mx-auto">
         <div className="text-center mb-16">
           <p className="mt-4 text-sm leading-7 text-gray-500 font-regular">
             THE TEAM
@@ -13,13 +13,13 @@ const Team = () => {
           </h3>
         </div>
 
-        <div className="grid grid-cols-3 col-gap-10">
-          <div className="text-center bg-white">
+        <div className="grid grid-cols-3 gap-10">
+          <div className="text-center bg-white gap-5 rounded-lg border border-slate-400 ">
             <img
               className="w-100"
               src="https://images.pexels.com/photos/1587014/pexels-photo-1587014.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500"
             />
-            <div className="p-4">
+            <div className="p-4 text-start ">
               <div className="text-md">
                 <a
                   href="#"
@@ -29,7 +29,7 @@ const Team = () => {
                 </a>
                 <p className="text-gray-500 uppercase text-sm">Web developer</p>
               </div>
-              <div className="my-4 flex justify-center items-center">
+              <div className="my-4 flex justify-start gap-5 items-center">
                 <a href="#">
                   <FaFacebook> </FaFacebook>
                 </a>
@@ -43,12 +43,12 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="text-center bg-white">
+          <div className="text-center bg-white gap-5 rounded-lg border border-slate-400">
             <img
               className="w-100"
               src="https://images.pexels.com/photos/2897883/pexels-photo-2897883.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500"
             />
-            <div className="p-4">
+            <div className="p-4 text-start">
               <div className="text-md">
                 <a
                   href="#"
@@ -60,7 +60,7 @@ const Team = () => {
                   president &amp; CEO
                 </p>
               </div>
-              <div className="my-4 flex justify-center items-center">
+              <div className="my-4 flex justify-start gap-5 items-center">
                 <a href="#">
                   <FaFacebook> </FaFacebook>
                 </a>
@@ -74,12 +74,12 @@ const Team = () => {
               </div>
             </div>
           </div>
-          <div className="text-center bg-white">
+          <div className="text-center bg-white gap-5 rounded-lg border border-slate-400">
             <img
               className="w-100"
               src="https://images.pexels.com/photos/3778680/pexels-photo-3778680.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500"
             />
-            <div className="p-4">
+            <div className="p-4 text-start">
               <div className="text-md">
                 <a
                   href="#"
@@ -89,7 +89,7 @@ const Team = () => {
                 </a>
                 <p className="text-gray-500 uppercase text-sm">Web designer</p>
               </div>
-              <div className="my-4 flex justify-center items-center">
+              <div className="my-4 flex justify-start gap-5 items-center">
                 <a href="#">
                   <FaFacebook> </FaFacebook>
                 </a>

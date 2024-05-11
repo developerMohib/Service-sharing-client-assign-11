@@ -1,7 +1,7 @@
 
 const Testominal = () => {
     return (
-        <section className="max-w-5xl mx-auto w-full px-10 dark:bg-gray-800 dark:text-white my-10 ">
+        <section className=" mx-auto w-full dark:bg-gray-800 dark:text-white my-10 ">
   <div className="flex items-center justify-center flex-col gap-y-2 py-5">
     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold">Testimonials</h2>
     <p className="text-lg font-medium text-slate-700/70 dark:text-gray-400">Discover how our service can benefit you</p>

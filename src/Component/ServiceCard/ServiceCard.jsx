@@ -2,88 +2,143 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const ServiceCard = () => {
-  const [ homeServices, setHomeServies ] =useState([]);
-  useEffect(()=> {
+  const [homeServices, setHomeServies] = useState([]);
+  useEffect(() => {
     fetch(`http://localhost:5000/eduServices`)
-    .then(res=> res.json())
-    .then(data => {
-      // console.log(data, 'service data');
-      setHomeServies(data)
-    })
-  },[])
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data, 'service data');
+        setHomeServies(data);
+      });
+  }, []);
   // console.log(homeServices,'home card ')
   return (
     <div>
-      <div className="mt-10 text-center ">
-        <p className="font-light text-2xl">Find What Fascinates You</p>
-        <h1 className="md:text-4xl text-4xl md:font-extrabold font-semibold my-3 ">
+      <div className="mt-10 md:mt-24 text-center ">
+        <p
+          data-aos="fade-left"
+          data-aos-duration="3000"
+          data-aos-delay="2000"
+          className="font-light text-2xl"
+        >
+          Find What Fascinates You
+        </p>
+        <h1
+          data-aos="fade-up"
+          data-aos-duration="3000"
+          data-aos-delay="1000"
+          className="md:text-4xl text-4xl md:font-extrabold font-semibold my-3 "
+        >
           Online Lessons
         </h1>
-        <p className="text-lg font-light md:w-1/2 mx-auto mt-5">online classes have revolutionized the way people access education, making it more convenient, accessible, and flexible than ever before.</p>
+        <p
+          data-aos="fade-right"
+          data-aos-duration="3000"
+          data-aos-delay="2000"
+          className="text-lg font-light md:w-1/2 mx-auto mt-5"
+        >
+          online classes have revolutionized the way people access education,
+          making it more convenient, accessible, and flexible than ever before.
+        </p>
       </div>
       <div className="lg:grid grid-cols-3 gap-10 my-5 ">
-        {
-          homeServices.slice(0,6).map(data => (
-            <div key={data?._id} className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md border border-slate-400 dark:bg-gray-800 my-5 ">
-          <img
-            className="object-cover w-full h-64"
-            src={data?.serviceImage}
-            alt={data?.serviceName}
-          />
+        {homeServices.slice(0, 6).map((data) => (
+          <div
+            data-aos="fade-up"
+            data-aos-duration="3000"
+            data-aos-delay="1000"
+            key={data?._id}
+            className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md border border-slate-400 dark:bg-gray-800 my-5 "
+          >
+            <img
+              className="object-cover w-full h-64"
+              src={data?.serviceImage}
+              alt={data?.serviceName}
+            />
 
-          <div className="p-6">
-            <div>
-              <span className="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">
-              {data?.serviceName}
-              </span>
-              <p
-                className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
-              >
-                {data?.serviceName}
-              </p>
-              <p title={data?.description} className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-              {data?.description.substring(0,100)}...
-              </p>
-            </div>
-
-            <div className="mt-4">
+            <div className="p-6">
               <div>
-                <p>
-                  {" "}
-                  <span className="font-semibold" >Price : </span>$ {data?.servicePrice}
+                <span
+                  data-aos="fade-up"
+                  data-aos-duration="3000"
+                  data-aos-delay="1000"
+                  className="text-xs font-medium text-blue-600 uppercase dark:text-blue-400"
+                >
+                  {data?.serviceName}
+                </span>
+                <p
+                  data-aos="fade-up"
+                  data-aos-duration="3000"
+                  data-aos-delay="1000"
+                  className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
+                >
+                  {data?.serviceName}
+                </p>
+                <p
+                  data-aos="fade-up"
+                  data-aos-duration="3000"
+                  data-aos-delay="2000"
+                  title={data?.description}
+                  className="mt-2 text-sm text-gray-600 dark:text-gray-400"
+                >
+                  {data?.description.substring(0, 100)}...
                 </p>
               </div>
-              <div className="flex items-center justify-between ">
-                <div className="flex items-center mt-5 ">
-                  <img
-                    className="object-cover h-10 rounded-full"
-                    src={data?.providerPhoto}
-                    alt="Avatar"
-                  />
-                  <div className="ml-3 ">
-                  <p
-                    className="font-semibold text-gray-700 dark:text-gray-200"
-                  >
-                    {data?.providerName}
-                  </p>
 
-                  <p className="text-xs text-gray-600 dark:text-gray-300">
-                    21 SEP 2015
-                  </p>
-                  </div>
-                </div>
+              <div className="mt-4">
                 <div>
-                <Link to={`/serviceDetails/${data?._id}`} > <button className="bg-green-500 btn ">view details</button> </Link>
+                  <p
+                    data-aos="fade-up"
+                    data-aos-duration="3000"
+                    data-aos-delay="2000"
+                  >
+                    {" "}
+                    <span className="font-semibold">Price : </span>${" "}
+                    {data?.servicePrice}
+                  </p>
+                </div>
+                <div className="flex items-center justify-between ">
+                  <div className="flex items-center mt-5 ">
+                    <img
+                      className="object-cover h-10 rounded-full"
+                      src={data?.providerPhoto}
+                      alt="Avatar"
+                    />
+                    <div
+                      data-aos="fade-up"
+                      data-aos-duration="3000"
+                      data-aos-delay="2000"
+                      className="ml-3 "
+                    >
+                      <p className="font-semibold text-gray-700 dark:text-gray-200">
+                        {data?.providerName}
+                      </p>
+
+                      <p className="text-xs text-gray-600 dark:text-gray-300">
+                        21 SEP 2015
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    data-aos="fade-up"
+                    data-aos-duration="3000"
+                    data-aos-delay="3000"
+                  >
+                    <Link to={`/serviceDetails/${data?._id}`}>
+                      {" "}
+                      <button className="bg-green-500 btn ">
+                        view details
+                      </button>{" "}
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-          ))
-        }
+        ))}
       </div>
 
-      <div className="text-center my-10 ">
+      <div data-aos="fade-right" data-aos-duration="3000" data-aos-delay="2000" className="text-center my-10 ">
         {/* button  */}
         <Link
           to="/services"

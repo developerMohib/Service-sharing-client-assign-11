@@ -21,20 +21,20 @@ const ServiceDetails = () => {
       {/* Details about service */}
       <div className="container px-6 py-16 mx-auto">
         <div className="items-center gap-10 lg:flex">
-          <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
+          <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
             <img
-              className="w-full h-full lg:max-w-3xl"
+              className="w-full h-96 lg:max-w-3xl"
               src={serviceImage}
                 // src="https://merakiui.com/images/components/Catalogue-pana.svg"
               alt="Catalogue-pana.svg"
             />
           </div>
 
-          <div className="w-full lg:w-1/2">
-            <h1 className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">
+          <div data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" className="w-full lg:w-1/2">
+            <h1 data-aos="fade-left" data-aos-duration="2000" data-aos-delay="2000" className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">
               {serviceName}
             </h1>
-            <div className="lg:max-w-lg">
+            <div data-aos="fade-left" data-aos-duration="2000" data-aos-delay="2000" className="lg:max-w-lg">
               <h1 className="text-3xl font-semibold text-gray-800 dark:text-white pt-8 lg:text-4xl">
                 Best place to choose <br />{" "}
                 <span className="text-red-700 font-bold ">
@@ -52,15 +52,14 @@ const ServiceDetails = () => {
               </h1>
               {/* animation text  */}
 
-              <p className="mt-3 text-gray-600 dark:text-gray-400">
-               {description} <br></br> laborum ab amet sunt recusandae?
-                Reiciendis natus perspiciatis optio.
+              <p data-aos="fade-left" data-aos-duration="2000" data-aos-delay="2000" className="mt-3 text-gray-600 dark:text-gray-400">
+               {description}
               </p>
-              <p className="my-5">
+              <p data-aos="fade-left" data-aos-duration="2000" data-aos-delay="3000" className="my-5">
                 {" "}
                 <span className="font-bold ">Price :</span> {servicePrice}{" "}
               </p>
-              <p>
+              <p data-aos="fade-left" data-aos-duration="3000" data-aos-delay="3000">
                 {" "}
                 <span className="font-bold ">Location : </span>{" "}
                 {serviceArea}{" "}
@@ -68,7 +67,7 @@ const ServiceDetails = () => {
 
               {/*  */}
               <div className="flex items-center justify-between ">
-                <div className="flex items-center mt-5 ">
+                <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="flex items-center mt-5 ">
                   <img
                     className="object-cover h-10 rounded-full"
                     src={providerPhoto}
@@ -85,7 +84,7 @@ const ServiceDetails = () => {
                   </div>
                 </div>
                 <div>
-                  <div className="relative inline-flex items-center px-8 py-2 overflow-hidden font-medium text-indigo-600 border border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
+                  <div data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" className="relative inline-flex items-center px-8 py-2 overflow-hidden font-medium text-indigo-600 border border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50">
                     <span className="absolute left-0 block w-full h-0 transition-all bg-indigo-600 opacity-100 group-hover:h-full top-1/2 group-hover:top-0 duration-400 ease"></span>
                     <span className="absolute right-0 flex items-center justify-start h-10 duration-300 transform translate-x-full group-hover:translate-x-0 ease">
                       <svg

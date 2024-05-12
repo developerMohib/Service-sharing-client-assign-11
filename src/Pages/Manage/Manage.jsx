@@ -92,7 +92,7 @@ const Manage = () => {
   return (
     <div>
       <Helmet> <title>Manage | Simple service sharing web application </title> </Helmet>
-      <div className="text-sm breadcrumbs ">
+      <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="text-sm breadcrumbs ">
         <ul>
           <li>
             <Link to="/"> Home </Link>
@@ -106,16 +106,16 @@ const Manage = () => {
         </ul>
       </div>
 
-      <h1 className="text-center font-bold my-5 text-2xl underline ">
+      <h1 data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1000" className="text-center font-bold my-5 text-2xl underline ">
         Manage Service
       </h1>
-      <h1 className="text-center font-bold my-5 text-2xl underline ">
+      <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000" className="text-center my-5 text-sm underline ">
         My Post length {myAddData.length}
       </h1>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1000" >
             <tr>
               <th>Service Image</th>
               <th>Price</th>
@@ -129,7 +129,7 @@ const Manage = () => {
             {/* row 1 */}
             {myAddData?.map((data) => (
               <tr key={data._id}>
-                <td>
+                <td data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" >
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
@@ -148,10 +148,10 @@ const Manage = () => {
                     </div>
                   </div>
                 </td>
-                <td> $ {data.servicePrice}</td>
-                <td>{data.providerName}</td>
-                <td>{data.providerEmail}</td>
-                <th>
+                <td data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000" > $ {data.servicePrice}</td>
+                <td data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000" >{data.providerName}</td>
+                <td data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000" >{data.providerEmail}</td>
+                <th data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" >
                   {/* modal start  */}
                   <button
                     className="btn"

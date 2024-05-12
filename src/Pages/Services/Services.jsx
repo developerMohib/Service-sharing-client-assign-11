@@ -1,42 +1,59 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Filter from "../../Component/Filter/Filter";
 import { Helmet } from "react-helmet-async";
+import { useState } from "react";
 
 const Services = () => {
   const allSerData = useLoaderData();
+  const [dataLen, setDataLen] = useState(8);
   // console.log(allSerData);
   return (
     <div>
-      <Helmet> <title>Services | Simple service sharing web application</title> </Helmet>
+      <Helmet>
+        {" "}
+        <title>Services | Simple service sharing web application</title>{" "}
+      </Helmet>
       <Filter> </Filter>
-      <section className="container grid grid-cols-2 gap-8 mx-auto antialiased my-10 ">
-        {allSerData?.map((serviceCard) => (
+      <section
+        data-aos="fade-up"
+        data-aos-duration="2000"
+        data-aos-delay="1000"
+        className="container grid grid-cols-2 md:gap-14 gap-8 mx-auto antialiased my-10 "
+      >
+        {allSerData?.slice(0, dataLen).map((serviceCard) => (
           <article
             key={serviceCard._id}
             className="md:flex-nowrap shadow-lg mx-auto group cursor-pointer transform duration-500 hover:-translate-y-1 my-10 bg-base-300 p-5 "
           >
             <img
-              className=" w-full object-cover"
+              data-aos="fade-up"
+              data-aos-duration="2000"
+              data-aos-delay="1000"
+              className=" w-full object-cover h-64"
               src={serviceCard.serviceImage}
               alt=""
             />
             <div>
-              <div className="p-5 pb-10">
+              <div
+                data-aos="fade-up"
+                data-aos-duration="2000"
+                data-aos-delay="2000"
+                className="p-5 pb-10"
+              >
                 <h1 className="text-2xl font-semibold text-gray-800 mt-4">
                   {serviceCard.serviceName}
                 </h1>
                 <p className="text-gray-400 mt-2 leading-relaxed">
-                  {serviceCard.description}
+                  {serviceCard.description.substring(0, 200)}
                 </p>
               </div>
-              <div className="bg-blue-50 p-5">
+              <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000" className="bg-blue-50 p-5">
                 <div className="mt-3 text-gray-600 text-sm md:text-sm">
                   *Places to visit: Mahasthangarh, Vasu Bihar &amp; Momo Inn
                 </div>
                 {/* author */}
                 <div className="flex justify-between items-center mt-5 ">
-                  
-                <div>
+                  <div>
                     <div className="text-lg text-gray-700">
                       <span className="text-gray-900 font-bold"> Price : </span>{" "}
                       {serviceCard?.servicePrice}
@@ -77,34 +94,37 @@ const Services = () => {
                       </div>
                     </div>
                     <div className="text-lg text-gray-700">
-                      <span className="text-gray-900 font-bold"> Location : </span>{" "}
+                      <span className="text-gray-900 font-bold">
+                        {" "}
+                        Location :{" "}
+                      </span>{" "}
                       {serviceCard?.serviceArea}
                     </div>
                   </div>
                 </div>
                 {/* author */}
-                <div className="sm:flex sm:justify-between mt-10">
-                <div className="flex gap-4 ">
-                  <img
-                    className="object-cover h-10 rounded-full"
-                    src={serviceCard?.providerPhoto}
-                    alt="Profle"
-                  />
-                  <div>
-                    <p className="font-semibold text-gray-700 dark:text-gray-200">
-                      {serviceCard?.providerName}
-                    </p>
+                <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="2000" className="sm:flex sm:justify-between mt-10">
+                  <div className="flex gap-4 ">
+                    <img
+                      className="object-cover h-10 rounded-full"
+                      src={serviceCard?.providerPhoto}
+                      alt="Profle"
+                    />
+                    <div>
+                      <p className="font-semibold text-gray-700 dark:text-gray-200">
+                        {serviceCard?.providerName}
+                      </p>
 
-                    <p className="text-xs text-gray-600 dark:text-gray-300">
-                      21 SEP 2015
-                    </p>
-                  </div>
+                      <p className="text-xs text-gray-600 dark:text-gray-300">
+                        21 SEP 2015
+                      </p>
+                    </div>
                   </div>
 
-                  <Link to={`/serviceDetails/${serviceCard._id}`} >
-                  <button className="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-green-700 hover:bg-purple-600 text-white md:text-lg rounded-lg shadow-md">
-                    View details
-                  </button> 
+                  <Link to={`/serviceDetails/${serviceCard._id}`}>
+                    <button className="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-green-700 hover:bg-purple-600 text-white md:text-lg rounded-lg shadow-md">
+                      View details
+                    </button>
                   </Link>
                 </div>
               </div>
@@ -112,6 +132,15 @@ const Services = () => {
           </article>
         ))}
       </section>
+
+      <div className={`my-10 text-center  `}>
+        <button
+          onClick={() => setDataLen(allSerData.length)}
+          className="btn btn-outline bg-green-500"
+        >
+          Load More
+        </button>
+      </div>
     </div>
   );
 };

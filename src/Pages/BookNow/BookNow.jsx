@@ -64,14 +64,14 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
   return (
     <div className="my-10">
       <Helmet> <title> Book Now | Simple service sharing web application </title> </Helmet>
-      <h1 className="text-center font-bold my-5 text-2xl underline ">
+      <h1 data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1000" className="text-center font-bold my-5 text-2xl underline ">
         Book Now
       </h1>
       <div className=" p-10 ">
         <form onSubmit={handleBooked} >
           {/* form Provider email and name row */}
           <div className="md:flex gap-8 my-5 ">
-            <label className="form-control w-full">
+            <label data-aos="fade-right" data-aos-duration="2000" data-aos-delay="2000" className="form-control w-full">
               <div className="label">
                 <span className="label-text">Provider Name</span>
               </div>
@@ -83,7 +83,7 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
                 className="input input-bordered w-full"
               />
             </label>
-            <label className="form-control w-full">
+            <label data-aos="fade-left" data-aos-duration="2000" data-aos-delay="2000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Provider Email </span>
               </div>
@@ -98,7 +98,7 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
           </div>
           {/* form Current User email and name row */}
           <div className="md:flex gap-8 my-5 ">
-            <label className="form-control w-full">
+            <label data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text">User Name</span>
               </div>
@@ -110,7 +110,7 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
                 className="input input-bordered w-full"
               />
             </label>
-            <label className="form-control w-full">
+            <label data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> User Email </span>
               </div>
@@ -125,13 +125,13 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
           </div>
           {/* form Date and serviceId row */}
           <div className="md:flex gap-8 my-5 ">
-            <label className="form-control w-full">
+            <label data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text">Date</span>
               </div>
               <DatePicker className="input input-bordered w-full" selected={startDate} onChange={(date) => setStartDate(date)} />
             </label>
-            <label className="form-control w-full">
+            <label data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Service Id </span>
               </div>
@@ -145,7 +145,7 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
           </div>
           {/* form name and price row */}
           <div className="md:flex gap-8 my-5 ">
-            <label className="form-control w-full">
+            <label data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Service Name </span>
               </div>
@@ -157,7 +157,7 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
                 className="input input-bordered w-full"
               />
             </label>
-            <label className="form-control w-full">
+            <label data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Price </span>
               </div>
@@ -172,7 +172,7 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
           </div>
           {/* form service area and photo url row */}
           <div className="md:flex gap-8 my-5 ">
-            <label className="form-control w-full">
+            <label data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Service Area </span>
               </div>
@@ -184,7 +184,7 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
                 className="input input-bordered w-full"
               />
             </label>
-            <label className="form-control w-full">
+            <label data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text">Service Photo URL</span>
               </div>
@@ -200,7 +200,7 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
           {/* form Details row */}
 
           <div className="my-5">
-            <label className="form-control w-full">
+            <label data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text">Description</span>
               </div>
@@ -214,7 +214,7 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
             </label>
           </div>
 
-          <input
+          <input data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000"
             className=" btn border-none btn-block my-10 bg-success "
             type="submit"
             value="Purchase Now "

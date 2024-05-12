@@ -28,7 +28,7 @@ const BookService = () => {
   return (
     <div>
       <Helmet> <title> My Booked | Simple service sharing web application </title> </Helmet>
-      <div className="text-sm breadcrumbs ">
+      <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="text-sm breadcrumbs ">
         <ul>
           <li>
             <Link to='/' > Home </Link>
@@ -44,14 +44,14 @@ const BookService = () => {
           </li>
         </ul>
       </div>
-      <h1 className="text-center font-bold my-5 text-2xl underline ">
+      <h1 data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1000" className="text-center font-bold my-5 text-2xl underline ">
       Booked Service
       </h1>
 
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1000">
             <tr>
               <th>Service Image</th>
               <th>Service Price</th>
@@ -65,7 +65,7 @@ const BookService = () => {
             {/* row 1 */}
             {bookData?.map((data) => (
               <tr key={data._id}>
-                <td>
+                <td data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000">
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
@@ -84,10 +84,10 @@ const BookService = () => {
                     </div>
                   </div>
                 </td>
-                <td> $ {data.servicePrice}</td>
-                <td>{data.buyerName}</td>
-                <td>{data.currentUserEmail}</td>
-                <th>
+                <td data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000"> $ {data.servicePrice}</td>
+                <td data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000">{data.buyerName}</td>
+                <td data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000">{data.currentUserEmail}</td>
+                <th data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000">
                   <p> {data.status} </p>
                 </th>
               </tr>

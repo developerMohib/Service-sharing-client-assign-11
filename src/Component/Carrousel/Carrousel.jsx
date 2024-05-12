@@ -28,15 +28,15 @@ const Carrousel = () => {
             }}
           >
             <div className="mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center bg-[#0000006e] lg:pt-32">
-              <p className="mx-auto -mt-4 max-w-2xl text-lg tracking-tight text-white sm:mt-6">
+              <p data-aos="fade-up" data-aos-duration="2000" className="mx-auto -mt-4 max-w-2xl text-lg tracking-tight text-white sm:mt-6">
                 Welcome to{" "}
                 <span className="border-b border-dotted border-slate-300 bg-gradient-to-r from-orange-500 via-green-500 to-white inline-block text-transparent bg-clip-text">
                  Our Classes
                 </span>
               </p>
 
-              <h1 className="mx-auto max-w-4xl font-display text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl my-3 leading-10 ">
-                <span className="inline-block text-white ">
+              <h1 className="mx-auto md:my-10 max-w-4xl font-display text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl my-3 leading-10 ">
+                <span data-aos="zoom-in" data-aos-duration="2000" className="inline-block text-white ">
                 YOUR IDEAS WILL <br/>
                   <span className="relative whitespace-nowrap font-bold text-green-600">
                     <svg
@@ -52,14 +52,14 @@ const Carrousel = () => {
                 </span>
               </h1>
 
-              <p className="mx-auto mt-9 max-w-2xl text-lg tracking-tight text-white sm:mt-6">
+              <p data-aos="fade-up" data-aos-duration="2000" className="mx-auto mt-9 max-w-2xl text-lg tracking-tight text-white sm:mt-6">
                 Bring functionalities of other apps into your Notion workspaces.
                 <span className="inline-block text-white "></span>
                 <span className="inline-block text-white "></span>
               </p>
 
               <div className="mt-12 flex flex-col justify-center gap-y-5 sm:mt-10 sm:flex-row sm:gap-y-0 sm:gap-x-6">
-                <Link to='/services'
+                <Link data-aos="fade-up" data-aos-duration="3000" to='/services'
                   className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900 animate-fade-in-left"
                 >
                   <svg
@@ -81,7 +81,7 @@ const Carrousel = () => {
                   className="relative flex flex-1 flex-col items-stretch sm:flex-none"
                   data-headlessui-state=""
                 >
-                  <button
+                  <Link data-aos="fade-up" data-aos-duration="3000" data-aos-delay="1000"
                     className="group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none ring-slate-200 text-white bg-orange-500 hover:bg-slate-700 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300 animate-fade-in-right"
                     id="headlessui-menu-button-:r4:"
                     aria-haspopup="true"
@@ -91,7 +91,7 @@ const Carrousel = () => {
                   >
                     <BiLogoPlayStore> </BiLogoPlayStore>
                     <span className="ml-3">Download Our App</span>
-                  </button>
+                  </Link>
                 </div>
               </div>
             </div>

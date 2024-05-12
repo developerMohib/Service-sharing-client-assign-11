@@ -4,7 +4,7 @@ import { FaFacebook,FaLinkedinIn,FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div>
+    <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000">
       <footer className="bg-base-300 dark:bg-gray-900">
         <div className="container p-6 mx-auto">
           <div className="lg:flex">

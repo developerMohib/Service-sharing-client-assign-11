@@ -57,7 +57,7 @@ const AddService = () => {
   return (
     <div className="my-10">
       <Helmet> <title> Add Service | Simple service sharing web application </title> </Helmet>
-      <div className="text-sm breadcrumbs">
+      <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="text-sm breadcrumbs">
         <ul>
           <li>
             <Link to="/"> Home </Link>
@@ -67,14 +67,14 @@ const AddService = () => {
           </li>
         </ul>
       </div>
-      <h1 className="text-center font-bold my-5 text-2xl underline ">
+      <h1 data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1000" className="text-center font-bold my-5 text-2xl underline ">
         Add a Services
       </h1>
       <div className=" p-10 ">
         <form onSubmit={handleAddService}>
           {/* form Category and details row */}
           <div className="md:flex gap-8 my-5 ">
-            <label className="form-control w-full">
+            <label data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text">Provider Name</span>
               </div>
@@ -86,7 +86,7 @@ const AddService = () => {
                 className="input input-bordered w-full"
               />
             </label>
-            <label className="form-control w-full">
+            <label data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Provider Email </span>
               </div>
@@ -101,7 +101,7 @@ const AddService = () => {
           </div>
           {/* form name and price row */}
           <div className="md:flex gap-8 my-5 ">
-            <label className="form-control w-full">
+            <label data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Service Name </span>
               </div>
@@ -112,7 +112,7 @@ const AddService = () => {
                 className="input input-bordered w-full"
               />
             </label>
-            <label className="form-control w-full">
+            <label data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Price </span>
               </div>
@@ -126,7 +126,7 @@ const AddService = () => {
           </div>
           {/* form service area and photo url row */}
           <div className="md:flex gap-8 my-5 ">
-            <label className="form-control w-full">
+            <label data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Service Area </span>
               </div>
@@ -137,7 +137,7 @@ const AddService = () => {
                 className="input input-bordered w-full"
               />
             </label>
-            <label className="form-control w-full">
+            <label data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
               <div className="label">
                 <span className="label-text">Service Photo URL</span>
               </div>
@@ -152,7 +152,7 @@ const AddService = () => {
           {/* form Details row */}
 
           <div className="my-5">
-            <label className="form-control w-full">
+            <label data-aos="fade-up" data-aos-duration="2000" data-aos-delay="2000" className="form-control w-full">
               <div className="label">
                 <span className="label-text">Description</span>
               </div>
@@ -165,7 +165,7 @@ const AddService = () => {
             </label>
           </div>
 
-          <input
+          <input data-aos="fade-up" data-aos-duration="3000" data-aos-delay="1000"
             className=" btn border-none btn-block my-10 bg-success "
             type="submit"
             value="Add Service"

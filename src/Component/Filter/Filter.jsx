@@ -1,17 +1,17 @@
 const Filter = () => {
   return (
     <div>
-      <div className="text-center mt-10 ">
+      <div className="text-center mt-10 md:mt-24 ">
         <div className="mt-10">
-          <h1 className="text-xl font-light text-center">
+          <h1 data-aos="fade-down" data-aos-duration="3000" data-aos-delay="2000" className="text-xl font-light text-center">
           Find What Fascinates You
           </h1>
-          <h1 className="md:text-4xl text-4xl md:font-bold font-semibold text-center my-5 ">
+          <h1 data-aos="fade-up" data-aos-duration="3000" data-aos-delay="1000" className="md:text-4xl text-4xl md:font-bold font-semibold text-center my-5 ">
             Find Your Your Best Teacher
           </h1>
           <h1 className="text-2xl my-5 font-bold text-center">Find a Tutor</h1>
         </div>
-        <div className="md:join w-[90%] ">
+        <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="2000" className="md:join w-[90%] ">
           <select
             //   onChange={handleSortChange}
             className="select select-bordered w-[90%] block mx-auto join-item"

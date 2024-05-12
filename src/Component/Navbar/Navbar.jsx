@@ -6,6 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Tooltip } from "react-tooltip";
 import { AuthCustomContext } from "../../Provider/Provider";
 import { FaBookOpenReader } from "react-icons/fa6";
+import { GoChevronDown } from "react-icons/go";
 const Navbar = () => {
   const [theme, setTheme] = useState("light");
   const [open, setOpen] = useState(false);
@@ -15,37 +16,56 @@ const Navbar = () => {
       <NavLink className="px-1 py-1 mx-1 hover:border-b " to="/">
         Home
       </NavLink>
-      <NavLink className="px-1 py-1 mx-1 hover:border-b border-black" to="/services">
+      <NavLink
+        className="px-1 py-1 mx-1 hover:border-b border-black"
+        to="/services"
+      >
         Services
       </NavLink>
 
       {user && (
         <>
           <div className="dropdown dropdown-hover">
-        <div tabIndex={0} role="button" className="m-1">
-          Dashboard 
-        </div>
-        <ul
-          tabIndex={0}
-          className="dropdown-content z-10 menu p-2 shadow bg-base-100 rounded-box w-52"
-        >
-          <li>
-            <Link className="hover:border-b border-black" to="/addService"> Add Service </Link>
-          </li>
-          <li>
-            <Link className="hover:border-b border-black" to="/manage"> Manage Service </Link>
-          </li>
-          <li>
-            <Link className="hover:border-b border-black" to="/booked"> Booked-Services </Link>
-          </li>
-          <li>
-            <Link className="hover:border-b border-black" to="/todoservice"> Service-To-Do </Link>
-          </li>
-        </ul>
-      </div>
+            <div tabIndex={0} role="button" className="m-1 flex ">
+              Dashboard{" "}
+              <GoChevronDown className="text-xl font-extralight ml-2 " />
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-10 menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <Link className="hover:border-b border-black" to="/addService">
+                  {" "}
+                  Add Service{" "}
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:border-b border-black" to="/manage">
+                  {" "}
+                  Manage Service{" "}
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:border-b border-black" to="/booked">
+                  {" "}
+                  Booked-Services{" "}
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:border-b border-black" to="/todoservice">
+                  {" "}
+                  Service-To-Do{" "}
+                </Link>
+              </li>
+            </ul>
+          </div>
         </>
       )}
-      <NavLink className="px-1 py-1 mx-1 hover:border-b border-black " to="/contact">
+      <NavLink
+        className="px-1 py-1 mx-1 hover:border-b border-black "
+        to="/contact"
+      >
         Contact Us
       </NavLink>
     </div>

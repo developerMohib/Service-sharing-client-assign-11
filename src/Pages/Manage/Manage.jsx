@@ -11,7 +11,7 @@ const Manage = () => {
   const [bookData, setBookData] = useState([]);
   const { user, loading } = useContext(AuthCustomContext);
   const userEmail = user?.email;
-  // console.log(bookData, 'user email')
+  console.log(bookData, 'user email')
 
   const myAddData = bookData.filter((data) => data.providerEmail == userEmail);
 
@@ -65,9 +65,15 @@ const Manage = () => {
       };
     }
   };
-  const handleUpdate =(e)=> {
-    e.preventDefault()
-  }
+  const handleUpdate = (e) => {
+    e.preventDefault();
+    const area = e.target.serviceArea.value;
+    console.log(area, "modal");
+    toast.success("goot it");
+
+
+    document.getElementById("my_modal_1").close()
+  };
 
   return (
     <div>
@@ -94,6 +100,7 @@ const Manage = () => {
           <thead>
             <tr>
               <th>Service Image</th>
+              <th>Price</th>
               <th>User Name</th>
               <th>User Email</th>
               <th>Action</th>
@@ -123,67 +130,98 @@ const Manage = () => {
                     </div>
                   </div>
                 </td>
+                <td> $ {data.servicePrice}</td>
                 <td>{data.providerName}</td>
                 <td>{data.providerEmail}</td>
                 <th>
-                  <button className="mx-2">
-                    {" "}
-                    {/* Modad start */}
-                    <button
-                      className="btn"
-                      onClick={() =>
-                        document.getElementById("my_modal_1").showModal()
-                      }
-                    >
-                      <FaRegEdit className="text-2xl"></FaRegEdit>
-                    </button>
-                    <dialog id="my_modal_1" className="modal">
-                      <div className="modal-box">
-                        <h3 className="font-bold text-lg">
-                          Update Your Data !
-                        </h3>
-                        <div className="modal-action">
-                          <form onSubmit={handleUpdate}>
-                            <div className="md:flex gap-8 my-5 ">
-                              <label className="form-control w-full">
-                                <div className="label">
-                                  <span className="label-text">
-                                    {" "}
-                                    Service Area{" "}
-                                  </span>
-                                </div>
-                                <input
-                                  type="text"
-                                  placeholder="Service Area"
-                                  name="serviceArea"
-                                  className="input input-bordered w-full"
-                                />
-                              </label>
-
-                              <label className="form-control w-full">
-                                <div className="label">
-                                  <span className="label-text">
-                                    Service Photo URL
-                                  </span>
-                                </div>
-                                <input
-                                  type="text"
-                                  placeholder="Image URL of the Service "
-                                  name="serviceUrl"
-                                  className="input input-bordered w-full"
-                                />
-                              </label>
-                            </div>
-                            <input
-            className=" btn border-none btn-block my-10 bg-success "
-            type="submit"
-            value="Add Service"
-          />
-                          </form>
-                        </div>
-                      </div>
-                    </dialog>
+                  {/* modal start  */}
+                  <button
+                    className="btn"
+                    onClick={() =>
+                      document.getElementById("my_modal_1").showModal()
+                    }
+                  >
+                    <FaRegEdit className="text-2xl"></FaRegEdit>
                   </button>
+                  <dialog id="my_modal_1" className="modal ">
+                    <div className="modal-box">
+                      <h3 className="font-bold text-lg">Update Your Data !</h3>
+                      <div className="modal-action">
+                        <form onSubmit={handleUpdate}>
+                          <div className="md:flex gap-8 my-5 ">
+                            <label className="form-control w-full">
+                              <div className="label">
+                                <span className="label-text">
+                                  {" "}
+                                  Service Area{" "}
+                                </span>
+                              </div>
+                              <input
+                                type="text"
+                                placeholder="Service Area"
+                                defaultValue={data.serviceArea}
+                                name="serviceArea"
+                                className="input input-bordered text-opacity-50 w-full"
+                              />
+                            </label>
+
+                            <label className="form-control w-full">
+                              <div className="label">
+                                <span className="label-text">
+                                  Service Photo URL
+                                </span>
+                              </div>
+                              <input
+                                type="text"
+                                placeholder="Image URL"
+                                defaultValue={data.serviceImage}
+                                name="serviceUrl"
+                                className="input input-bordered text-opacity-50 w-full"
+                              />
+                            </label>
+                          </div>
+                          <div className="md:flex gap-8 my-5 ">
+                            <label className="form-control w-full">
+                              <div className="label">
+                                <span className="label-text">
+                                  {" "}
+                                  Service Name{" "}
+                                </span>
+                              </div>
+                              <input
+                                type="text"
+                                placeholder="Service Name"
+                                defaultValue={data.serviceName}
+                                name="serviceName"
+                                className="input input-bordered text-opacity-50 w-full"
+                              />
+                            </label>
+
+                            <label className="form-control w-full">
+                              <div className="label">
+                                <span className="label-text">
+                                Service Price
+                                </span>
+                              </div>
+                              <input
+                                type="text"
+                                placeholder="Service Price"
+                                defaultValue={data.servicePrice}
+                                name="servicePrice"
+                                className="input input-bordered text-opacity-50 w-full"
+                              />
+                            </label>
+                          </div>
+                          <input
+                            className=" btn border-none btn-block my-10 bg-success "
+                            type="submit"
+                            value="Update Service"
+                          />
+                        </form>
+                      </div>
+                    </div>
+                  </dialog>
+                  {/* modal start  */}
                   <button
                     onClick={() => handleDelete(data._id)}
                     className="ml-2"

@@ -5,10 +5,12 @@ import { FiXCircle } from "react-icons/fi";
 import toast from "react-hot-toast";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const BookService = () => {
   const [bookData, setBookData] = useState([]);
   const { user, loading } = useContext(AuthCustomContext);
+  // console.log(bookData)
 
   useEffect(() => {
     getData();
@@ -28,7 +30,6 @@ const BookService = () => {
   }
 
   const handleDelete = (id) => {
-    console.log(id);
     try {
       Swal.fire({
         title: "Are you sure?",
@@ -54,11 +55,6 @@ const BookService = () => {
           });
         }
       });
-
-      // const data = await axios.delete(`http://localhost:5000/bookedServices/${id}`)
-      // console.log(data);
-      // toast.success('delete successful');
-      // getData();
     } catch {
       (err) => {
         toast.error(err.message);
@@ -68,12 +64,33 @@ const BookService = () => {
 
   return (
     <div>
+      <div className="text-sm breadcrumbs ">
+        <ul>
+          <li>
+            <Link to='/' > Home </Link>
+          </li>
+          <li>
+            <Link to='/addService' > Add Service </Link>
+          </li>
+          <li>
+            <Link to='/manage' > Manage Service </Link>
+          </li>
+          <li>
+          <Link >Booked Service</Link>
+          </li>
+        </ul>
+      </div>
+      <h1 className="text-center font-bold my-5 text-2xl underline ">
+      Booked Service
+      </h1>
+
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
             <tr>
               <th>Service Image</th>
+              <th>Service Price</th>
               <th>Buyer Name</th>
               <th>My Email</th>
               <th>Action</th>
@@ -103,6 +120,7 @@ const BookService = () => {
                     </div>
                   </div>
                 </td>
+                <td> $ {data.servicePrice}</td>
                 <td>{data.buyerName}</td>
                 <td>{data.currentUserEmail}</td>
                 <th>

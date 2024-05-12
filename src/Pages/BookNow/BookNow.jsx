@@ -31,7 +31,6 @@ const BookNow = () => {
     const from = e.target ;
     const buyerName = from.buyerName.value ;
     const buyerEmail = from.buyerEmail.value ;
-    
     const serviceId = from.id.value ;
     const serviceName = from.serviceName.value ;
     const servicePrice = from.servicePrice.value ;

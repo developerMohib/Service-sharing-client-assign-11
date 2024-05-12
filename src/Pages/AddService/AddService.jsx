@@ -3,57 +3,74 @@ import { AuthCustomContext } from "../../Provider/Provider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AddService = () => {
   const { user } = useContext(AuthCustomContext);
   const providerEmail = user?.email;
   const providerName = user?.displayName;
   const providerPhoto = user?.photoURL;
-  const navigate = useNavigate () ;
+  const navigate = useNavigate();
 
+  const handleAddService = async (e) => {
+    e.preventDefault();
+    const from = e.target;
+    const serviceImage = from.serviceUrl.value;
+    const serviceName = from.serviceName.value;
+    const servicePrice = from.price.value;
+    const serviceArea = from.serviceArea.value;
+    const description = from.description.value;
 
-  const handleAddService = async(e) => {
-    e.preventDefault() ;
-    const from = e.target ;
-    const serviceImage = from.serviceUrl.value ;
-    const serviceName = from.serviceName.value ;
-    const servicePrice = from.price.value ;
-    const serviceArea = from.serviceArea.value ;
-    const description = from.description.value ;
+    const providerData = {
+      serviceArea,
+      serviceImage,
+      serviceName,
+      servicePrice,
+      description,
+      providerEmail,
+      providerName,
+      providerPhoto,
+    };
+    console.log(providerData, "formdata");
 
-    const providerData = {serviceArea, serviceImage, serviceName, servicePrice, description, providerEmail, providerName, providerPhoto};
-    console.log(providerData,'formdata')
-
-    // send data to server to database 
-    try{
-      const response = await axios.post('http://localhost:5000/eduServices',providerData)
-      console.log(response.data, 'frist try')
+    // send data to server to database
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/eduServices",
+        providerData
+      );
+      console.log(response.data, "frist try");
       Swal.fire({
         position: "top-end",
         icon: "success",
         title: "You added successfully !",
         showConfirmButton: false,
-        timer: 2000
+        timer: 2000,
       });
-      navigate('/services')
+      navigate("/manage");
+    } catch (err) {
+      console.log(err, "frist try catch");
+      toast.error(err.message);
     }
-    catch(err){
-      console.log(err, 'frist try catch')
-      toast.error(err.message)
-    }
-
-
-  }
-
+  };
 
   return (
     <div className="my-10">
+      <div className="text-sm breadcrumbs">
+        <ul>
+          <li>
+            <Link to="/"> Home </Link>
+          </li>
+          <li>
+            <Link> Add Service </Link>
+          </li>
+        </ul>
+      </div>
       <h1 className="text-center font-bold my-5 text-2xl underline ">
         Add a Services
       </h1>
       <div className=" p-10 ">
-        <form onSubmit={handleAddService} >
+        <form onSubmit={handleAddService}>
           {/* form Category and details row */}
           <div className="md:flex gap-8 my-5 ">
             <label className="form-control w-full">

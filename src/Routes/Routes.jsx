@@ -58,9 +58,9 @@ export const router = createBrowserRouter([
         {
           path: "/manage",
           element: <Manage> </Manage> ,
-          loader: async () => {
-            return fetch(`http://localhost:5000/eduServices`);
-          },
+          // loader: async ({params}) => {
+          //   return fetch(`http://localhost:5000/bookedServices/${params.email}`);
+          // },
         },
         {
           path: "/addService",

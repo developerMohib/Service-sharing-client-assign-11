@@ -1,10 +1,12 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthCustomContext } from "../../Provider/Provider";
 import toast from 'react-hot-toast';
+import { FaGoogle } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Registration = () => {
-  const {registerUser, updateProfileFromUser, user, setUser} =useContext(AuthCustomContext) ;
+  const {registerUser, updateProfileFromUser,signInGoogle, user, setUser} =useContext(AuthCustomContext) ;
   const notifyRegister = () => toast.success('Account is created successfully');
   const navigate = useNavigate();
 
@@ -30,6 +32,22 @@ const Registration = () => {
       console.log(error,'regiter teke eorr')
     })
   }
+  
+  const handleGoogleLogin = () => {
+    signInGoogle()
+    .then((result) => {
+      console.log(result.user);
+      Swal.fire({
+        icon: 'success',
+        title: "success!",
+        text: 'You have logged in successfully!.'
+      });
+      <Navigate to='/' ></Navigate>
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+  }
 
     return (
         <div className='flex justify-center items-center min-h-[calc(100vh-306px)]'>
@@ -46,6 +64,20 @@ const Registration = () => {
           <p className='mt-3 text-xl text-center text-gray-600 '>
             Get Your Free Account Now.
           </p>
+
+          <div
+            onClick={handleGoogleLogin}
+            className="flex cursor-pointer items-center justify-center mt-4 text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 "
+          >
+            <div className="flex items-center justify-center">
+              <div className="px-4 py-2">
+                <FaGoogle> </FaGoogle>
+              </div>
+              <span className="w-5/6 px-4 py-3 font-bold text-center">
+                Sign in with Google
+              </span>
+            </div>
+          </div>
 
           <div className='flex items-center justify-between mt-4'>
             <span className='w-1/5 border-b  lg:w-1/4'></span>

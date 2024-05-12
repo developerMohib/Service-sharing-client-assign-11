@@ -36,7 +36,7 @@ const AddService = () => {
         showConfirmButton: false,
         timer: 2000
       });
-      navigate('/manage')
+      navigate('/services')
     }
     catch(err){
       console.log(err, 'frist try catch')

@@ -42,37 +42,37 @@ export const router = createBrowserRouter([
         },
         {
           path: "/serviceDetails/:id",
-          element: <PrivateRoute> <ServiceDetails> </ServiceDetails> </PrivateRoute> ,
+          element: <PrivateRoute> <ServiceDetails> </ServiceDetails> </PrivateRoute>,
           loader: async ({ params }) => {
             return fetch(`http://localhost:5000/eduServices/${params.id}`);
           },
         },
         {
           path: "/contact",
-          element: <Contact> </Contact> ,
+          element: <Contact> </Contact>,
         },
         {
           path: "/todoservice",
-          element: <ToDoService> </ToDoService> ,
+          element: <PrivateRoute> <ToDoService> </ToDoService> </PrivateRoute>,
         },
         {
           path: "/manage",
-          element: <Manage> </Manage> ,
+          element: <PrivateRoute> <Manage> </Manage> </PrivateRoute>,
           // loader: async ({params}) => {
           //   return fetch(`http://localhost:5000/bookedServices/${params.email}`);
           // },
         },
         {
           path: "/addService",
-          element: <AddService> </AddService>,
+          element: <PrivateRoute> <AddService> </AddService> </PrivateRoute>,
         },
         {
           path: "/booked",
-          element: <BookService> </BookService>,
+          element: <PrivateRoute> <BookService> </BookService> </PrivateRoute> ,
         },
         {
           path: "/booknow/:email",
-          element: <BookNow> </BookNow>,
+          element: <PrivateRoute> <BookNow> </BookNow> </PrivateRoute> ,
           loader: async ({ params }) => {
             return fetch(`http://localhost:5000/eduServices/${params.email}`);
           },

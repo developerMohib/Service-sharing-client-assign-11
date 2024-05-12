@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
@@ -38,7 +38,7 @@ const Login = () => {
         title: "success!",
         text: 'You have logged in successfully!.'
       });
-      // <Navigate  ></Navigate>
+      <Navigate to={location.pathname} ></Navigate>
     })
     .catch((error) => {
       console.error(error);

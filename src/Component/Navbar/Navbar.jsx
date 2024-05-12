@@ -12,34 +12,40 @@ const Navbar = () => {
   const { user, logOut } = useContext(AuthCustomContext);
   const navLinks = (
     <div className="">
-      <NavLink className="px-1 py-1 mx-1 " to="/">
+      <NavLink className="px-1 py-1 mx-1 hover:border-b " to="/">
         Home
       </NavLink>
-      <NavLink className="px-1 py-1 mx-1 " to="/services">
+      <NavLink className="px-1 py-1 mx-1 hover:border-b border-black" to="/services">
         Services
       </NavLink>
+
       {user && (
         <>
-          <details className="dropdown">
-            <summary className="">Dashboard</summary>
-            <ul className="p-2 mt-3 shadow menu dropdown-content z-10 bg-base-100 rounded-box w-52">
-              <li>
-                <Link to="/addService"> Add Service </Link>
-              </li>
-              <li>
-                <Link to="/manage"> Manage Service </Link>
-              </li>
-              <li>
-                <Link to="/booked"> Booked-Services </Link>
-              </li>
-              <li>
-                <Link to="/todoservice"> Service-To-Do </Link>
-              </li>
-            </ul>
-          </details>
+          <div className="dropdown dropdown-hover">
+        <div tabIndex={0} role="button" className="m-1">
+          Dashboard 
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content z-10 menu p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <li>
+            <Link className="hover:border-b border-black" to="/addService"> Add Service </Link>
+          </li>
+          <li>
+            <Link className="hover:border-b border-black" to="/manage"> Manage Service </Link>
+          </li>
+          <li>
+            <Link className="hover:border-b border-black" to="/booked"> Booked-Services </Link>
+          </li>
+          <li>
+            <Link className="hover:border-b border-black" to="/todoservice"> Service-To-Do </Link>
+          </li>
+        </ul>
+      </div>
         </>
       )}
-      <NavLink className="px-1 py-1 mx-1 " to="/contact">
+      <NavLink className="px-1 py-1 mx-1 hover:border-b border-black " to="/contact">
         Contact Us
       </NavLink>
     </div>

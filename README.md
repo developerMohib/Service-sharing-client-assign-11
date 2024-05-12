@@ -18,3 +18,5 @@ Currently, two official plugins are available:
 - [Google-Font-Poppins]() Google-Font-Poppins
 - [swiper-js](https://swiperjs.com/get-started) swipper js carrousel
 - [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter) react-simple-typewriter
+- [axios](https://axios-http.com/docs/intro) axios
+- [react-datepicker](https://www.npmjs.com/package/react-datepicker) react-datepicker

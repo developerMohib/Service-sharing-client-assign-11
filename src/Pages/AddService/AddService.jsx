@@ -1,14 +1,19 @@
 import { useContext } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
+import axios from "axios";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddService = () => {
   const { user } = useContext(AuthCustomContext);
   const providerEmail = user?.email;
   const providerName = user?.displayName;
   const providerPhoto = user?.photoURL;
+  const navigate = useNavigate () ;
 
 
-  const handleAddService = (e) => {
+  const handleAddService = async(e) => {
     e.preventDefault() ;
     const from = e.target ;
     const serviceImage = from.serviceUrl.value ;
@@ -17,10 +22,26 @@ const AddService = () => {
     const serviceArea = from.serviceArea.value ;
     const description = from.description.value ;
 
-    console.log(serviceArea, serviceImage, serviceName, servicePrice, description, providerEmail, providerName, providerPhoto , 'from form add' ) ;
+    const providerData = {serviceArea, serviceImage, serviceName, servicePrice, description, providerEmail, providerName, providerPhoto};
+    console.log(providerData,'formdata')
 
     // send data to server to database 
-    
+    try{
+      const response = await axios.post('http://localhost:5000/eduServices',providerData)
+      console.log(response.data, 'frist try')
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "You added successfully !",
+        showConfirmButton: false,
+        timer: 2000
+      });
+      navigate('/manage')
+    }
+    catch(err){
+      console.log(err, 'frist try catch')
+      toast.error(err.message)
+    }
 
 
   }

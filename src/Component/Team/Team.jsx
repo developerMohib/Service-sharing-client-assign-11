@@ -13,7 +13,7 @@ const Team = () => {
           </h3>
         </div>
 
-        <div className="grid grid-cols-3 gap-10">
+        <div className="md:grid grid-cols-3 gap-10 md:my-0 my-5 md:px-0 px-3 ">
           <div className="text-center bg-white gap-5 rounded-lg border border-slate-400 ">
             <img
               className="w-100"

@@ -4,14 +4,16 @@ import { Typewriter } from "react-simple-typewriter";
 const ServiceDetails = () => {
   const detailsData = useLoaderData();
   const {
-    service_image,
-    service_name,
-    service_description,
-    service_price,
-    service_provider,
+    serviceImage,
+    serviceName,
+    description,
+    providerName,
+    providerPhoto,
+    servicePrice,
+    serviceArea,
     _id,
   } = detailsData;
-  //   console.log(detailsData, "details page");
+    // console.log(detailsData, "details page");
   return (
     <div>
       {/* Details about service */}
@@ -20,15 +22,15 @@ const ServiceDetails = () => {
           <div className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2">
             <img
               className="w-full h-full lg:max-w-3xl"
-              src={service_image}
-              //   src="https://merakiui.com/images/components/Catalogue-pana.svg"
+              src={serviceImage}
+                // src="https://merakiui.com/images/components/Catalogue-pana.svg"
               alt="Catalogue-pana.svg"
             />
           </div>
 
           <div className="w-full lg:w-1/2">
             <h1 className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">
-              {service_name}
+              {serviceName}
             </h1>
             <div className="lg:max-w-lg">
               <h1 className="text-3xl font-semibold text-gray-800 dark:text-white pt-8 lg:text-4xl">
@@ -36,7 +38,7 @@ const ServiceDetails = () => {
                 <span className="text-red-700 font-bold ">
                   {/* Style will be inherited from the parent element */}
                   <Typewriter
-                    words={[`${service_name}`]}
+                    words={[`${serviceName}`]}
                     loop={true}
                     cursor
                     cursorStyle="_"
@@ -49,17 +51,17 @@ const ServiceDetails = () => {
               {/* animation text  */}
 
               <p className="mt-3 text-gray-600 dark:text-gray-400">
-                {service_description} <br></br> laborum ab amet sunt recusandae?
+               {description} <br></br> laborum ab amet sunt recusandae?
                 Reiciendis natus perspiciatis optio.
               </p>
               <p className="my-5">
                 {" "}
-                <span className="font-bold ">Price :</span> {service_price}{" "}
+                <span className="font-bold ">Price :</span> {servicePrice}{" "}
               </p>
               <p>
                 {" "}
                 <span className="font-bold ">Location : </span>{" "}
-                {service_provider.location}{" "}
+                {serviceArea}{" "}
               </p>
 
               {/*  */}
@@ -67,13 +69,12 @@ const ServiceDetails = () => {
                 <div className="flex items-center mt-5 ">
                   <img
                     className="object-cover h-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1586287011575-a23134f797f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=48&q=60"
-                    alt="Avatar"
+                    src={providerPhoto}
+                    alt="Profile"
                   />
                   <div className="ml-3 ">
                     <p className="font-semibold text-gray-700 dark:text-gray-200">
-                      {service_provider?.name}
-                      {service_provider?.service_area}
+                      {providerName}
                     </p>
 
                     <p className="text-xs text-gray-600 dark:text-gray-300">

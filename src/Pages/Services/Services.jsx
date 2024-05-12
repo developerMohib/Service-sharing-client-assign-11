@@ -1,8 +1,9 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Filter from "../../Component/Filter/Filter";
+
 const Services = () => {
   const allSerData = useLoaderData();
-  console.log(allSerData);
+  // console.log(allSerData);
   return (
     <div>
       <Filter> </Filter>
@@ -14,19 +15,16 @@ const Services = () => {
           >
             <img
               className=" w-full object-cover"
-              // src="https://i.ibb.co/Kr4b0zJ/152013403-10158311889099633-8423107287930246533-o.jpg"
-              src={serviceCard.service_image}
+              src={serviceCard.serviceImage}
               alt=""
             />
             <div>
               <div className="p-5 pb-10">
                 <h1 className="text-2xl font-semibold text-gray-800 mt-4">
-                  {serviceCard.service_name}
+                  {serviceCard.serviceName}
                 </h1>
                 <p className="text-gray-400 mt-2 leading-relaxed">
-                  {serviceCard.service_description}
-                  Located in Rajshahi Division, Bogra is one of the oldest and
-                  most fascinating towns in Bangladesh
+                  {serviceCard.description}
                 </p>
               </div>
               <div className="bg-blue-50 p-5">
@@ -39,7 +37,7 @@ const Services = () => {
                 <div>
                     <div className="text-lg text-gray-700">
                       <span className="text-gray-900 font-bold"> Price : </span>{" "}
-                      {serviceCard.service_price}
+                      {serviceCard?.servicePrice}
                     </div>
                     <div className="flex items-center">
                       <div className="flex">
@@ -76,6 +74,10 @@ const Services = () => {
                         16 reviews
                       </div>
                     </div>
+                    <div className="text-lg text-gray-700">
+                      <span className="text-gray-900 font-bold"> Location : </span>{" "}
+                      {serviceCard?.serviceArea}
+                    </div>
                   </div>
                 </div>
                 {/* author */}
@@ -83,12 +85,12 @@ const Services = () => {
                 <div className="flex gap-4 ">
                   <img
                     className="object-cover h-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1586287011575-a23134f797f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=48&q=60"
-                    alt="Avatar"
+                    src={serviceCard?.providerPhoto}
+                    alt="Profle"
                   />
                   <div>
                     <p className="font-semibold text-gray-700 dark:text-gray-200">
-                      {serviceCard?.service_provider?.name}
+                      {serviceCard?.providerName}
                     </p>
 
                     <p className="text-xs text-gray-600 dark:text-gray-300">
@@ -98,7 +100,7 @@ const Services = () => {
                   </div>
 
                   <Link to={`/serviceDetails/${serviceCard._id}`} >
-                  <button className="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-purple-700 hover:bg-purple-600 font-bold text-white md:text-lg rounded-lg shadow-md">
+                  <button className="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-green-700 hover:bg-purple-600 text-white md:text-lg rounded-lg shadow-md">
                     View details
                   </button> 
                   </Link>

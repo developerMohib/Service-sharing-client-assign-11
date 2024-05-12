@@ -13,7 +13,7 @@ import AddService from "../Pages/AddService/AddService";
 import BookService from "../Pages/BookService/BookService";
 import PrivateRoute from "./PrivateRoute";
 import ServiceDetails from "../Component/ServiceDetails/ServiceDetails";
-import BookNow from "../Component/BookNow/BookNow";
+import BookNow from "../Pages/BookNow/BookNow";
 
 export const router = createBrowserRouter([
     {
@@ -58,6 +58,9 @@ export const router = createBrowserRouter([
         {
           path: "/manage",
           element: <Manage> </Manage> ,
+          loader: async () => {
+            return fetch(`http://localhost:5000/eduServices`);
+          },
         },
         {
           path: "/addService",
@@ -68,10 +71,10 @@ export const router = createBrowserRouter([
           element: <BookService> </BookService>,
         },
         {
-          path: "/booknow/:id",
+          path: "/booknow/:email",
           element: <BookNow> </BookNow>,
           loader: async ({ params }) => {
-            return fetch(`http://localhost:5000/eduServices/${params.id}`);
+            return fetch(`http://localhost:5000/eduServices/${params.email}`);
           },
         },
       ],

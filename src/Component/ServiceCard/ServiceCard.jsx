@@ -12,7 +12,6 @@ const ServiceCard = () => {
     })
   },[])
   // console.log(homeServices,'home card ')
-  // service_image, service_name, service_description, service_provider, [image,name], service_price
   return (
     <div>
       <div className="mt-10 text-center ">
@@ -28,22 +27,22 @@ const ServiceCard = () => {
             <div key={data?._id} className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md border border-slate-400 dark:bg-gray-800 my-5 ">
           <img
             className="object-cover w-full h-64"
-            src={data?.service_image}
-            alt="Article"
+            src={data?.serviceImage}
+            alt={data?.serviceName}
           />
 
           <div className="p-6">
             <div>
               <span className="text-xs font-medium text-blue-600 uppercase dark:text-blue-400">
-              {data?.service_name}
+              {data?.serviceName}
               </span>
               <p
                 className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
               >
-                {data?.service_name}
+                {data?.serviceName}
               </p>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-              {data?.service_description}
+              <p title={data?.description} className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              {data?.description.substring(0,100)}...
               </p>
             </div>
 
@@ -51,21 +50,21 @@ const ServiceCard = () => {
               <div>
                 <p>
                   {" "}
-                  <span className="font-semibold" >Price : </span> {data.service_price}
+                  <span className="font-semibold" >Price : </span>$ {data?.servicePrice}
                 </p>
               </div>
               <div className="flex items-center justify-between ">
                 <div className="flex items-center mt-5 ">
                   <img
                     className="object-cover h-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1586287011575-a23134f797f9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=48&q=60"
+                    src={data?.providerPhoto}
                     alt="Avatar"
                   />
                   <div className="ml-3 ">
                   <p
                     className="font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    {data?.service_provider?.name}
+                    {data?.providerName}
                   </p>
 
                   <p className="text-xs text-gray-600 dark:text-gray-300">

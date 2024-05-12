@@ -26,6 +26,7 @@ const Login = () => {
       .catch((error) => {
         console.log(error);
       });
+      Navigete('/')
   };
 
   const handleGoogleLogin = () => {
@@ -37,6 +38,7 @@ const Login = () => {
         title: "success!",
         text: 'You have logged in successfully!.'
       });
+      // <Navigate  ></Navigate>
     })
     .catch((error) => {
       console.error(error);

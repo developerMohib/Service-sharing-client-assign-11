@@ -1,22 +1,66 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const BookNow = () => {
   const { user } = useContext(AuthCustomContext);
-  const providerEmail = user?.email;
-  const providerName = user?.displayName;
-//   const providerPhoto = user?.photoURL;
-//   console.log(providerPhoto);
+  const currentUserEmail = user?.email;
+  const currentUserName = user?.displayName;
   const loadData = useLoaderData();
-//   console.log(loadData, 'bookNow')
+  const [startDate, setStartDate] = useState(new Date());
+  
+  const navigate = useNavigate() ;
   const {
-    service_image,
-    service_name,
-    service_description,
-    service_provider,
-    service_price,
+    serviceImage,
+    serviceName,
+    description,
+    providerName,
+    providerEmail,
+    servicePrice,
+    serviceArea,
+    _id,
   } = loadData;
+
+  const handleBooked = async (e) => {
+    e.preventDefault() ;
+    const from = e.target ;
+    const buyerName = from.buyerName.value ;
+    const buyerEmail = from.buyerEmail.value ;
+    
+    const serviceId = from.id.value ;
+    const serviceName = from.serviceName.value ;
+    const servicePrice = from.servicePrice.value ;
+    const serviceArea = from.serviceArea.value ;
+    const serviceUrl = from.serviceUrl.value ;
+    const deadline = startDate ;
+    const status = 'pending' ;
+    // console.log(buyerName,buyerEmail,serviceId,serviceName,servicePrice,serviceArea,serviceUrl, ' form ',currentUserEmail,currentUserName,deadline)
+const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serviceArea,serviceUrl,currentUserEmail,currentUserName,deadline,status}
+    // send data to server to database 
+    try{
+      const response = await axios.post('http://localhost:5000/bookedServices',bookedData)
+      console.log(response.data, 'frist try')
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "You added successfully !",
+        showConfirmButton: false,
+        timer: 2000
+      });
+      navigate('/manage')
+    }
+    catch(err){
+      console.log(err, 'frist try catch')
+      toast.error(err.message)
+    }
+  
+  }
+
 
   return (
     <div className="my-10">
@@ -24,7 +68,7 @@ const BookNow = () => {
         Book Now
       </h1>
       <div className=" p-10 ">
-        <form>
+        <form onSubmit={handleBooked} >
           {/* form Provider email and name row */}
           <div className="md:flex gap-8 my-5 ">
             <label className="form-control w-full">
@@ -35,7 +79,7 @@ const BookNow = () => {
                 type="text"
                 defaultValue={providerName}
                 readOnly
-                name="name"
+                name="buyerName"
                 className="input input-bordered w-full"
               />
             </label>
@@ -47,7 +91,7 @@ const BookNow = () => {
                 type="email"
                 defaultValue={providerEmail}
                 readOnly
-                name="email"
+                name="buyerEmail"
                 className="input input-bordered w-full"
               />
             </label>
@@ -56,25 +100,45 @@ const BookNow = () => {
           <div className="md:flex gap-8 my-5 ">
             <label className="form-control w-full">
               <div className="label">
-                <span className="label-text">Provider Name</span>
+                <span className="label-text">User Name</span>
               </div>
               <input
                 type="text"
-                defaultValue={providerName}
+                defaultValue={currentUserName}
                 readOnly
-                name="name"
+                name="currentUserName"
                 className="input input-bordered w-full"
               />
             </label>
             <label className="form-control w-full">
               <div className="label">
-                <span className="label-text"> Provider Email </span>
+                <span className="label-text"> User Email </span>
               </div>
               <input
                 type="email"
-                defaultValue={providerEmail}
+                defaultValue={currentUserEmail}
                 readOnly
-                name="email"
+                name="currentUserEmail"
+                className="input input-bordered w-full"
+              />
+            </label>
+          </div>
+          {/* form Date and serviceId row */}
+          <div className="md:flex gap-8 my-5 ">
+            <label className="form-control w-full">
+              <div className="label">
+                <span className="label-text">Date</span>
+              </div>
+              <DatePicker className="input input-bordered w-full" selected={startDate} onChange={(date) => setStartDate(date)} />
+            </label>
+            <label className="form-control w-full">
+              <div className="label">
+                <span className="label-text"> Service Id </span>
+              </div>
+              <input
+                type="text"
+                defaultValue={_id}
+                name="id"
                 className="input input-bordered w-full"
               />
             </label>
@@ -87,7 +151,7 @@ const BookNow = () => {
               </div>
               <input
                 type="text"
-                defaultValue={service_name}
+                defaultValue={serviceName}
                 readOnly
                 name="serviceName"
                 className="input input-bordered w-full"
@@ -99,9 +163,9 @@ const BookNow = () => {
               </div>
               <input
                 type="number"
-                defaultValue={service_price}
+                defaultValue={servicePrice}
                 readOnly
-                name="price"
+                name="servicePrice"
                 className="input input-bordered w-full"
               />
             </label>
@@ -114,7 +178,7 @@ const BookNow = () => {
               </div>
               <input
                 type="text"
-                data-tooltip-offset={service_provider?.location}
+                defaultValue={serviceArea}
                 readOnly
                 name="serviceArea"
                 className="input input-bordered w-full"
@@ -126,7 +190,7 @@ const BookNow = () => {
               </div>
               <input
                 type="text"
-                defaultValue={service_image}
+                defaultValue={serviceImage}
                 readOnly
                 name="serviceUrl"
                 className="input input-bordered w-full"
@@ -144,7 +208,7 @@ const BookNow = () => {
                 className="input input-bordered w-full"
                 name="details"
                 id="description"
-                defaultValue={service_description}
+                defaultValue={description}
                 readOnly
               ></textarea>
             </label>

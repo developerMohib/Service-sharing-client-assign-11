@@ -20,3 +20,4 @@ Currently, two official plugins are available:
 - [react-simple-typewriter](https://www.npmjs.com/package/react-simple-typewriter) react-simple-typewriter
 - [axios](https://axios-http.com/docs/intro) axios
 - [react-datepicker](https://www.npmjs.com/package/react-datepicker) react-datepicker
+- [react-helmet-async](https://www.npmjs.com/package/react-helmet-async) react-helmet-async

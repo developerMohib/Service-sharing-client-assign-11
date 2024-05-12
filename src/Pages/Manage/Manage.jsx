@@ -6,18 +6,16 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Manage = () => {
   const [bookData, setBookData] = useState([]);
+  
   const { user, loading } = useContext(AuthCustomContext);
   const userEmail = user?.email;
-  console.log(bookData, 'user email')
-
+  
   const myAddData = bookData.filter((data) => data.providerEmail == userEmail);
-
-  useEffect(() => {
-    getData();
-  }, [userEmail]);
+  // console.log(myAddData, "user email");
 
   const getData = () => {
     // to do : which data she / he added
@@ -27,56 +25,73 @@ const Manage = () => {
         setBookData(data);
       });
   };
+  useEffect(() => {
+    getData();
+  }, [userEmail]);
+
 
   if (loading) {
     return <p> loading...... </p>;
   }
 
   const handleDelete = (id) => {
-    // console.log(id);
-    try {
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          const data = axios.delete(
-            `http://localhost:5000/bookedServices/${id}`
-          );
-          console.log(data);
-          toast.success("delete successful");
-          getData();
-
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success",
-          });
-        }
-      });
-    } catch {
-      (err) => {
-        toast.error(err.message);
-      };
-    }
+ console.log(id)
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(
+          `http://localhost:5000/eduServices/${id}`
+        )
+        .then(data => {
+          if(data.data.deletedCount > 0){
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        })
+        getData();
+      }
+    });
   };
   const handleUpdate = (e) => {
     e.preventDefault();
-    const area = e.target.serviceArea.value;
-    console.log(area, "modal");
-    toast.success("goot it");
+    const serviceArea = e.target.serviceArea.value;
+    const serviceImage = e.target.serviceUrl.value;
+    const serviceName = e.target.serviceName.value;
+    const servicePrice = e.target.servicePrice.value;
+    const updateDoc = { serviceArea, serviceImage, serviceName, servicePrice };
 
-
-    document.getElementById("my_modal_1").close()
+    // data fetch to update
+    fetch(`http://localhost:5000/eduServices`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updateDoc),
+    })
+      .then((res) => res.json())
+      .then(() => {
+        toast.success("Update successful");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+        console.error(err);
+      });
+    document.getElementById("my_modal_1").close();
   };
 
   return (
     <div>
+      <Helmet> <title>Manage | Simple service sharing web application </title> </Helmet>
       <div className="text-sm breadcrumbs ">
         <ul>
           <li>
@@ -93,6 +108,9 @@ const Manage = () => {
 
       <h1 className="text-center font-bold my-5 text-2xl underline ">
         Manage Service
+      </h1>
+      <h1 className="text-center font-bold my-5 text-2xl underline ">
+        My Post length {myAddData.length}
       </h1>
       <div className="overflow-x-auto">
         <table className="table">
@@ -137,9 +155,9 @@ const Manage = () => {
                   {/* modal start  */}
                   <button
                     className="btn"
-                    onClick={() =>
+                    onClick={() =>{
                       document.getElementById("my_modal_1").showModal()
-                    }
+                    }}
                   >
                     <FaRegEdit className="text-2xl"></FaRegEdit>
                   </button>
@@ -147,7 +165,7 @@ const Manage = () => {
                     <div className="modal-box">
                       <h3 className="font-bold text-lg">Update Your Data !</h3>
                       <div className="modal-action">
-                        <form onSubmit={handleUpdate}>
+                        <form onSubmit={ () => handleUpdate(data._id) }>
                           <div className="md:flex gap-8 my-5 ">
                             <label className="form-control w-full">
                               <div className="label">
@@ -200,7 +218,7 @@ const Manage = () => {
                             <label className="form-control w-full">
                               <div className="label">
                                 <span className="label-text">
-                                Service Price
+                                  Service Price
                                 </span>
                               </div>
                               <input

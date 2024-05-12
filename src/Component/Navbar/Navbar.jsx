@@ -149,7 +149,7 @@ const Navbar = () => {
                   <div
                     data-tooltip-id="my-tooltip"
                     data-tooltip-content={user?.displayName}
-                    data-tooltip-place="bottom"
+                    data-tooltip-place="left"
                     className="text-2xl"
                   >
                     {" "}

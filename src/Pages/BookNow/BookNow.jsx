@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const BookNow = () => {
   const { user } = useContext(AuthCustomContext);
@@ -38,7 +39,6 @@ const BookNow = () => {
     const serviceUrl = from.serviceUrl.value ;
     const deadline = startDate ;
     const status = 'pending' ;
-    // console.log(buyerName,buyerEmail,serviceId,serviceName,servicePrice,serviceArea,serviceUrl, ' form ',currentUserEmail,currentUserName,deadline)
 const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serviceArea,serviceUrl,currentUserEmail,currentUserName,deadline,status}
     // send data to server to database 
     try{
@@ -63,6 +63,7 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
 
   return (
     <div className="my-10">
+      <Helmet> <title> Book Now | Simple service sharing web application </title> </Helmet>
       <h1 className="text-center font-bold my-5 text-2xl underline ">
         Book Now
       </h1>
@@ -216,7 +217,7 @@ const bookedData = {buyerName,buyerEmail,serviceId,serviceName,servicePrice,serv
           <input
             className=" btn border-none btn-block my-10 bg-success "
             type="submit"
-            value="Confirm"
+            value="Purchase Now "
           />
         </form>
       </div>

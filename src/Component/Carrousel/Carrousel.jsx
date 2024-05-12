@@ -17,7 +17,7 @@ const Carrousel = () => {
         }}
         navigation={true}
         modules={[Pagination, Navigation]}
-        className="mySwiper"
+        className="mySwiper rounded-lg "
       >
         <SwiperSlide>
           <div
@@ -37,7 +37,7 @@ const Carrousel = () => {
 
               <h1 className="mx-auto max-w-4xl font-display text-3xl font-medium tracking-tight text-slate-900 sm:text-4xl my-3 leading-10 ">
                 <span className="inline-block text-white ">
-                YOUR IDEAS WILL BE <br/>
+                YOUR IDEAS WILL <br/>
                   <span className="relative whitespace-nowrap font-bold text-green-600">
                     <svg
                       aria-hidden="true"

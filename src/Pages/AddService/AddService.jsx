@@ -4,6 +4,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AddService = () => {
   const { user } = useContext(AuthCustomContext);
@@ -53,9 +54,9 @@ const AddService = () => {
       toast.error(err.message);
     }
   };
-
   return (
     <div className="my-10">
+      <Helmet> <title> Add Service | Simple service sharing web application </title> </Helmet>
       <div className="text-sm breadcrumbs">
         <ul>
           <li>

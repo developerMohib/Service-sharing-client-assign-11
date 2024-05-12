@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 
@@ -16,6 +17,7 @@ const ServiceDetails = () => {
     // console.log(detailsData, "details page");
   return (
     <div>
+      <Helmet> <title>Services | Simple service sharing web application</title> </Helmet>
       {/* Details about service */}
       <div className="container px-6 py-16 mx-auto">
         <div className="items-center gap-10 lg:flex">

@@ -19,9 +19,9 @@ const ServiceCard = () => {
         <h1 className="md:text-4xl text-4xl md:font-extrabold font-semibold my-3 ">
           Online Lessons
         </h1>
-        <p className="text-lg font-light w-1/2 mx-auto mt-5">online classes have revolutionized the way people access education, making it more convenient, accessible, and flexible than ever before.</p>
+        <p className="text-lg font-light md:w-1/2 mx-auto mt-5">online classes have revolutionized the way people access education, making it more convenient, accessible, and flexible than ever before.</p>
       </div>
-      <div className="lg:grid grid-cols-3 gap-8 my-5 ">
+      <div className="lg:grid grid-cols-3 gap-10 my-5 ">
         {
           homeServices.slice(0,6).map(data => (
             <div key={data?._id} className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md border border-slate-400 dark:bg-gray-800 my-5 ">

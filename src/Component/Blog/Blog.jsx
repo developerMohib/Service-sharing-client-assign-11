@@ -6,7 +6,7 @@ const Blog = () => {
 <h1 className="md:text-4xl text-4xl md:font-extrabold font-semibold my-3 ">
   Online Lessons
 </h1>
-<p className="text-lg font-light w-1/2 mx-auto mt-5">online classes have revolutionized the way people access education, making it more convenient, accessible, and flexible than ever before.</p>
+<p className="text-lg font-light md:w-1/2 mx-auto mt-5">online classes have revolutionized the way people access education, making it more convenient, accessible, and flexible than ever before.</p>
 </div> 
       <div className="md:grid grid-cols-3 gap-8 my-10 ">
       {/* card - 1  */}

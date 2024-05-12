@@ -2,7 +2,7 @@ import { FaFacebook,FaTwitter } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 const Team = () => {
   return (
-    <div className="bg-gray-100 h-screen">
+    <div className="bg-gray-100">
       <div className="py-10 mx-auto">
         <div className="text-center mb-16">
           <p className="mt-4 text-sm leading-7 text-gray-500 font-regular">

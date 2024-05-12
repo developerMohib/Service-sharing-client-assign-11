@@ -1,11 +1,13 @@
 import { Link, useLoaderData } from "react-router-dom";
 import Filter from "../../Component/Filter/Filter";
+import { Helmet } from "react-helmet-async";
 
 const Services = () => {
   const allSerData = useLoaderData();
   // console.log(allSerData);
   return (
     <div>
+      <Helmet> <title>Services | Simple service sharing web application</title> </Helmet>
       <Filter> </Filter>
       <section className="container grid grid-cols-2 gap-8 mx-auto antialiased my-10 ">
         {allSerData?.map((serviceCard) => (

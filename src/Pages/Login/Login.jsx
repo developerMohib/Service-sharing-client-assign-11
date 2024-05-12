@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { logInUser, signInGoogle} = useContext(AuthCustomContext);
@@ -60,6 +61,10 @@ const Login = () => {
   // }
 
   return (
+    <>
+    <div>
+      <Helmet> <title>Login | Simple service sharing web application </title> </Helmet>
+    </div>
     <div className="flex justify-center items-center min-h-[calc(100vh-306px)]">
       <div className="flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl ">
         <div
@@ -175,6 +180,7 @@ const Login = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

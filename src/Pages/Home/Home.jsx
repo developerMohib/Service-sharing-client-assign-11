@@ -1,4 +1,5 @@
 
+import { Helmet } from 'react-helmet-async';
 import Blog from '../../Component/Blog/Blog';
 import Carrousel from '../../Component/Carrousel/Carrousel';
 import Filter from '../../Component/Filter/Filter';
@@ -9,6 +10,9 @@ import Testominal from '../../Component/Testominal/Testominal';
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title> Home | Simple service sharing web application </title>
+            </Helmet>
             <Carrousel> </Carrousel>
             <Filter> </Filter>
             <ServiceCard> </ServiceCard>

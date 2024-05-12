@@ -1,16 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
-import { FaRegEdit } from "react-icons/fa";
-import { FiXCircle } from "react-icons/fi";
-import toast from "react-hot-toast";
-import axios from "axios";
-import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const BookService = () => {
   const [bookData, setBookData] = useState([]);
   const { user, loading } = useContext(AuthCustomContext);
-  // console.log(bookData)
+  console.log(bookData , 'book data ')
 
   useEffect(() => {
     getData();
@@ -29,41 +25,9 @@ const BookService = () => {
     return <p> loading...... </p>;
   }
 
-  const handleDelete = (id) => {
-    try {
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You won't be able to revert this!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!",
-      }).then((result) => {
-        if (result.isConfirmed) {
-          const data = axios.delete(
-            `http://localhost:5000/bookedServices/${id}`
-          );
-          console.log(data);
-          toast.success("delete successful");
-          getData();
-
-          Swal.fire({
-            title: "Deleted!",
-            text: "Your file has been deleted.",
-            icon: "success",
-          });
-        }
-      });
-    } catch {
-      (err) => {
-        toast.error(err.message);
-      };
-    }
-  };
-
   return (
     <div>
+      <Helmet> <title> My Booked | Simple service sharing web application </title> </Helmet>
       <div className="text-sm breadcrumbs ">
         <ul>
           <li>
@@ -93,7 +57,7 @@ const BookService = () => {
               <th>Service Price</th>
               <th>Buyer Name</th>
               <th>My Email</th>
-              <th>Action</th>
+              <th>Status</th>
               <th></th>
             </tr>
           </thead>
@@ -124,14 +88,7 @@ const BookService = () => {
                 <td>{data.buyerName}</td>
                 <td>{data.currentUserEmail}</td>
                 <th>
-                  <button className="btn btn-ghost btn-xs">
-                    {" "}
-                    <FaRegEdit className="text-2xl"></FaRegEdit>{" "}
-                  </button>
-                  <button onClick={() => handleDelete(data._id)} className="">
-                    {" "}
-                    <FiXCircle className="text-2xl"> </FiXCircle>{" "}
-                  </button>
+                  <p> {data.status} </p>
                 </th>
               </tr>
             ))}

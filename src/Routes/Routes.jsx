@@ -37,9 +37,9 @@ export const router = createBrowserRouter([
         {
           path: "/services",
           element: <Services> </Services>,
-          loader: async () => {
-            return fetch(`http://localhost:5000/eduServices`)
-          }
+          // loader: async () => {
+          //   return fetch(`http://localhost:5000/eduServices`)
+          // }
         },
         {
           path: "/serviceDetails/:id",
@@ -55,13 +55,13 @@ export const router = createBrowserRouter([
         {
           path: "/todoservice",
           element: <PrivateRoute> <ToDoService> </ToDoService> </PrivateRoute>,
+          loader: async () => {
+            return fetch(`http://localhost:5000/bookedServices`);
+          },
         },
         {
           path: "/manage",
           element: <PrivateRoute> <Manage> </Manage> </PrivateRoute>,
-          // loader: async ({params}) => {
-          //   return fetch(`http://localhost:5000/bookedServices/${params.email}`);
-          // },
         },
         {
           path: "/update/:id",

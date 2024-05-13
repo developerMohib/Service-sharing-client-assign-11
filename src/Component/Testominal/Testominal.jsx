@@ -3,11 +3,11 @@ const Testominal = () => {
     return (
         <section className=" mx-auto w-full dark:bg-gray-800 dark:text-white my-10 ">
   <div className="flex items-center justify-center flex-col gap-y-2 py-5">
-    <h2 data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000" className="text-2xl md:text-3xl lg:text-4xl font-bold">Testimonials</h2>
-    <p data-aos="fade-up" data-aos-duration="2000" data-aos-delay="2000" className="text-lg font-medium text-slate-700/70 dark:text-gray-400">Discover how our service can benefit you</p>
+    <h2 data-aos="fade-up" data-aos-duration="2000" className="text-2xl md:text-3xl lg:text-4xl font-bold">Testimonials</h2>
+    <p data-aos="fade-up" data-aos-duration="2000" className="text-lg font-medium text-slate-700/70 dark:text-gray-400">Discover how our service can benefit you</p>
   </div>
   <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 w-full">
-    <div data-aos="fade-right" data-aos-duration="3000" data-aos-delay="1000"
+    <div data-aos="fade-right" data-aos-duration="3000"
       className="border p-7 rounded-xl bg-white dark:bg-gray-700 drop-shadow-md border-neutral-200/50 col-span-2 flex flex-col gap-y-10 justify-between">
       <div className="flex flex-col gap-y-3.5">
         <p className="font-bold text-xl">Brilliant house to rent</p>
@@ -20,7 +20,7 @@ const Testominal = () => {
         <p className="text-sm font-medium text-slate-700/70 dark:text-gray-400">CEO at ABC Corporation</p>
       </div>
     </div>
-    <div data-aos="fade-left" data-aos-duration="3000" data-aos-delay="2000"
+    <div data-aos="fade-left" data-aos-duration="3000"
       className="border p-7 rounded-xl bg-white dark:bg-gray-700 drop-shadow-md border-neutral-200/50 col-span-3 flex flex-col gap-y-10 justify-between">
       <div className="flex flex-col gap-y-3.5">
         <p className="font-bold text-xl">Efficient customer support</p>
@@ -33,7 +33,7 @@ const Testominal = () => {
         <p className="text-sm font-medium text-slate-700/70 dark:text-gray-400">Marketing Manager at ABC Company</p>
       </div>
     </div>
-    <div data-aos="fade-right" data-aos-duration="3000" data-aos-delay="1000"
+    <div data-aos="fade-right" data-aos-duration="3000"
       className="border p-7 rounded-xl bg-white dark:bg-gray-700 drop-shadow-md border-neutral-200/50 col-span-3 flex flex-col gap-y-10 justify-between">
       <div className="flex flex-col gap-y-3.5">
         <p className="font-bold text-xl">Seamless integration process</p>
@@ -46,7 +46,7 @@ const Testominal = () => {
         <p className="text-sm font-medium text-slate-700/70 dark:text-gray-400">CTO at XYZ Corporation</p>
       </div>
     </div>
-    <div data-aos="fade-left" data-aos-duration="3000" data-aos-delay="2000"
+    <div data-aos="fade-left" data-aos-duration="3000"
       className="border p-7 rounded-xl bg-white dark:bg-gray-700 drop-shadow-md border-neutral-200/50 col-span-2 flex flex-col gap-y-10 justify-between">
       <div className="flex flex-col gap-y-3.5">
         <p className="font-bold text-xl">Reliable service uptime</p>

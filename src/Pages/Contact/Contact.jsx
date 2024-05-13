@@ -8,11 +8,11 @@ const Contact = () => {
         <Helmet> <title> Contact | Simple service sharing web application </title> </Helmet>
     </div>
     <section className="max-w-4xl my-10 p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-      <h2 data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
+      <h2 data-aos="fade-left" data-aos-duration="3000" className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
         Drop a message to us{" "}
       </h2>
 
-      <form data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000" >
+      <form data-aos="fade-up" data-aos-duration="3000"  >
         <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
           <div>
             <label className="text-gray-700 dark:text-gray-200">Username</label>

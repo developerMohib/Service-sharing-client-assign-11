@@ -95,7 +95,7 @@ if(myAddData.length <= 0){
   return (
     <div>
       <Helmet> <title>Manage | Simple service sharing web application </title> </Helmet>
-      <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="text-sm breadcrumbs ">
+      <div data-aos="fade-right"  data-aos-duration="3000" className="text-sm breadcrumbs ">
         <ul>
           <li>
             <Link to="/"> Home </Link>
@@ -109,16 +109,16 @@ if(myAddData.length <= 0){
         </ul>
       </div>
 
-      <h1 data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1000" className="text-center font-bold my-5 text-2xl underline ">
+      <h1 data-aos="fade-down"  data-aos-duration="3000" className="text-center font-bold my-5 text-2xl underline ">
         Manage Service
       </h1>
-      <h1 data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000" className="text-center my-5 text-sm underline ">
+      <h1 data-aos="zoom-in"  data-aos-duration="3000" className="text-center my-5 text-sm underline ">
         My Post length {myAddData.length}
       </h1>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1000" >
+          <thead data-aos="fade-down"  data-aos-duration="3000" >
             <tr>
               <th>Service Image</th>
               <th>Price</th>
@@ -132,7 +132,7 @@ if(myAddData.length <= 0){
             {/* row 1 */}
             {myAddData?.map((data) => (
               <tr key={data._id}>
-                <td data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" >
+                <td data-aos="fade-right"  data-aos-duration="3000" >
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
@@ -151,10 +151,10 @@ if(myAddData.length <= 0){
                     </div>
                   </div>
                 </td>
-                <td data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000" > $ {data.servicePrice}</td>
-                <td data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000" >{data.providerName}</td>
-                <td data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="1000" >{data.providerEmail}</td>
-                <th data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" >
+                <td data-aos="zoom-in"  data-aos-duration="3000" > $ {data.servicePrice}</td>
+                <td data-aos="zoom-in"  data-aos-duration="3000" >{data.providerName}</td>
+                <td data-aos="zoom-in"  data-aos-duration="3000" >{data.providerEmail}</td>
+                <th data-aos="fade-left"  data-aos-duration="3000" >
                   {/* update button  */}
                   <Link to={`/update/${data._id}`}>
                 <button className="btn btn-circle" > <FaRegEdit className="text-2xl" > </FaRegEdit> </button>

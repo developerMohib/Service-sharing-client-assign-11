@@ -1,12 +1,55 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Filter from "../../Component/Filter/Filter";
 import { Helmet } from "react-helmet-async";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
 
 const Services = () => {
-  const allSerData = useLoaderData();
-  const [dataLen, setDataLen] = useState(8);
-  // console.log(allSerData);
+  const [allSerData, setAllSerData] = useState([]) ;
+  const [total, setTotal] = useState() ;
+
+  const [itemPerPage, setItemPerPage] = useState(6) ;
+  const [currentPage, setCurrentPage] = useState(0) ;
+  const numberOfPage = Math.ceil(total / itemPerPage) ;
+
+  // data loader 
+  useEffect(()=>{
+    fetch(`http://localhost:5000/eduServices?page=${currentPage}&size=${itemPerPage}`)
+    .then(res=> res.json())
+    .then( data => {
+      setAllSerData(data)
+    })
+  },[currentPage,itemPerPage])
+  // data count loader 
+  useEffect(()=>{
+    fetch(`http://localhost:5000/serviceCount`)
+    .then(res=> res.json())
+    .then( data => {
+      setTotal(data.countData)
+    })
+  },[])
+  
+  // page create 
+  const page = [ ] ;
+  for(let i = 0; i < numberOfPage; i++ ){
+    page.push(i)
+  }
+  const handlePageChange = (e) => {
+    const val = parseInt(e.target.value) ;
+    setItemPerPage(val)
+    setCurrentPage(0)
+  }
+  const handlePrev = () => {
+    if(currentPage > 0){
+      setCurrentPage(currentPage - 1)
+    }
+  }
+  const handleNext = () => {
+    if(currentPage < page.length -1){
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
   return (
     <div>
       <Helmet>
@@ -14,21 +57,30 @@ const Services = () => {
         <title>Services | Simple service sharing web application</title>{" "}
       </Helmet>
       <Filter> </Filter>
+      <div> <h1 className="text-2xl text-center mt-10 " >My All Educational Services </h1> </div>
+      <div className=" md:flex justify-end items-center mr-20 mb-5" >
+          <h1 className="text-3xl mr-10" > Per Page </h1>
+        <p>Current page : {currentPage} </p>
+        <select onChange={handlePageChange} className="border border-slate-600 rounded-lg " value={itemPerPage} name="" id="">
+        <option value="6">6</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        </select>
+      </div>
       <section
         data-aos="fade-up"
-        data-aos-duration="2000"
-        data-aos-delay="1000"
-        className="container grid grid-cols-2 md:gap-14 gap-8 mx-auto antialiased my-10 "
+        data-aos-duration="3000"
+        className="container grid grid-cols-3 md:gap-8 rounded-lg gap-5 mx-auto antialiased "
       >
-        {allSerData?.slice(0, dataLen).map((serviceCard) => (
+        {allSerData?.map((serviceCard) => (
           <article
             key={serviceCard._id}
             className="md:flex-nowrap shadow-lg mx-auto group cursor-pointer transform duration-500 hover:-translate-y-1 my-10 bg-base-300 p-5 "
           >
             <img
               data-aos="fade-up"
-              data-aos-duration="2000"
-              data-aos-delay="1000"
+              data-aos-duration="3000"
               className=" w-full object-cover h-64"
               src={serviceCard.serviceImage}
               alt=""
@@ -36,8 +88,7 @@ const Services = () => {
             <div>
               <div
                 data-aos="fade-up"
-                data-aos-duration="2000"
-                data-aos-delay="2000"
+                data-aos-duration="3000"
                 className="p-5 pb-10"
               >
                 <h1 className="text-2xl font-semibold text-gray-800 mt-4">
@@ -47,7 +98,7 @@ const Services = () => {
                   {serviceCard.description.substring(0, 200)}
                 </p>
               </div>
-              <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000" className="bg-blue-50 p-5">
+              <div data-aos="fade-up" data-aos-duration="2000" className="bg-blue-50 p-5">
                 <div className="mt-3 text-gray-600 text-sm md:text-sm">
                   *Places to visit: Mahasthangarh, Vasu Bihar &amp; Momo Inn
                 </div>
@@ -103,7 +154,7 @@ const Services = () => {
                   </div>
                 </div>
                 {/* author */}
-                <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="2000" className="sm:flex sm:justify-between mt-10">
+                <div data-aos="fade-up" data-aos-duration="2000" className="sm:flex sm:justify-between mt-10">
                   <div className="flex gap-4 ">
                     <img
                       className="object-cover h-10 rounded-full"
@@ -132,16 +183,15 @@ const Services = () => {
           </article>
         ))}
       </section>
-
-      <div className={`my-10 text-center  `}>
-        <button
-          onClick={() => setDataLen(allSerData.length)}
-          className="btn btn-outline bg-green-500"
-        >
-          Load More
-        </button>
+      <div className="text-center mb-10 " >
+        <p>Current page : {currentPage} </p>
+        <button onClick={handlePrev} className="btn btn-outline" >Prev</button>
+        {
+          page?.map(page => <button onClick={() => setCurrentPage(page)} className={`${currentPage === page ? 'mx-2 btn btn-outline bg-orange-500' : 'mx-2 btn btn-outline'}`} key={page} > {page} </button>)
+        }
+        <button onClick={handleNext} className="btn btn-outline" >Next</button>
       </div>
-    </div>
+      </div>
   );
 };
 

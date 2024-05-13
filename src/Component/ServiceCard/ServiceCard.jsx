@@ -18,7 +18,6 @@ const ServiceCard = () => {
         <p
           data-aos="fade-left"
           data-aos-duration="3000"
-          data-aos-delay="2000"
           className="font-light text-2xl"
         >
           Find What Fascinates You
@@ -34,7 +33,6 @@ const ServiceCard = () => {
         <p
           data-aos="fade-right"
           data-aos-duration="3000"
-          data-aos-delay="2000"
           className="text-lg font-light md:w-1/2 mx-auto mt-5"
         >
           online classes have revolutionized the way people access education,
@@ -46,7 +44,6 @@ const ServiceCard = () => {
           <div
             data-aos="fade-up"
             data-aos-duration="3000"
-            data-aos-delay="1000"
             key={data?._id}
             className="max-w-2xl overflow-hidden bg-white rounded-lg shadow-md border border-slate-400 dark:bg-gray-800 my-5 "
           >
@@ -61,7 +58,6 @@ const ServiceCard = () => {
                 <span
                   data-aos="fade-up"
                   data-aos-duration="3000"
-                  data-aos-delay="1000"
                   className="text-xs font-medium text-blue-600 uppercase dark:text-blue-400"
                 >
                   {data?.serviceName}
@@ -69,7 +65,6 @@ const ServiceCard = () => {
                 <p
                   data-aos="fade-up"
                   data-aos-duration="3000"
-                  data-aos-delay="1000"
                   className="block mt-2 text-xl font-semibold text-gray-800 transition-colors duration-300 transform dark:text-white hover:text-gray-600 hover:underline"
                 >
                   {data?.serviceName}
@@ -77,7 +72,6 @@ const ServiceCard = () => {
                 <p
                   data-aos="fade-up"
                   data-aos-duration="3000"
-                  data-aos-delay="2000"
                   title={data?.description}
                   className="mt-2 text-sm text-gray-600 dark:text-gray-400"
                 >
@@ -90,7 +84,6 @@ const ServiceCard = () => {
                   <p
                     data-aos="fade-up"
                     data-aos-duration="3000"
-                    data-aos-delay="2000"
                   >
                     {" "}
                     <span className="font-semibold">Price : </span>${" "}
@@ -107,7 +100,6 @@ const ServiceCard = () => {
                     <div
                       data-aos="fade-up"
                       data-aos-duration="3000"
-                      data-aos-delay="2000"
                       className="ml-3 "
                     >
                       <p className="font-semibold text-gray-700 dark:text-gray-200">
@@ -122,7 +114,6 @@ const ServiceCard = () => {
                   <div
                     data-aos="fade-up"
                     data-aos-duration="3000"
-                    data-aos-delay="3000"
                   >
                     <Link to={`/serviceDetails/${data?._id}`}>
                       {" "}

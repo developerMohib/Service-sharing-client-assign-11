@@ -1,6 +1,15 @@
-# simple service sharing web application
+# Simple Service Sharing web application
+# Live Link(https://service-sharing-47bd4.web.app/)
+
 # Assignment_ID: assignment_category_0002
 # Variant : Assignment_Category_0002
+
+# Five Bullet point about my web app 
+- You Can Explore Our Diverse Online Course Catalog !
+- To Expose Your Skill Dive into Our Dynamic Online Learning Platform ! 
+- To Empower Yourself Expertly Crafted It will Help You !
+- Access From Anywher To Our Interactive Online Courses!
+- To Discover a World, Join Our Online Learning Community !
 
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

@@ -244,12 +244,11 @@ const BookNow = () => {
               className="form-control w-full"
             >
               <div className="label">
-                <span className="label-text"> Service Area </span>
+                <span className="label-text"> Service Area (You can change it) </span>
               </div>
               <input
                 type="text"
                 defaultValue={serviceArea}
-                readOnly
                 name="serviceArea"
                 className="input input-bordered w-full"
               />

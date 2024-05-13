@@ -14,6 +14,7 @@ import BookService from "../Pages/BookService/BookService";
 import PrivateRoute from "./PrivateRoute";
 import ServiceDetails from "../Component/ServiceDetails/ServiceDetails";
 import BookNow from "../Pages/BookNow/BookNow";
+import Update from "../Pages/Update/Update";
 
 export const router = createBrowserRouter([
     {
@@ -61,6 +62,13 @@ export const router = createBrowserRouter([
           // loader: async ({params}) => {
           //   return fetch(`http://localhost:5000/bookedServices/${params.email}`);
           // },
+        },
+        {
+          path: "/update/:id",
+          element: <PrivateRoute> <Update> </Update> </PrivateRoute>,
+          loader: async ({params}) => {
+            return fetch(`http://localhost:5000/eduServices/${params.id}`);
+          },
         },
         {
           path: "/addService",

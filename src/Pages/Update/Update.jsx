@@ -1,104 +1,33 @@
-import { useContext } from "react";
-import { AuthCustomContext } from "../../Provider/Provider";
-import axios from "axios";
-import Swal from "sweetalert2";
-import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { Link, useLoaderData } from "react-router-dom";
 
-const AddService = () => {
-  const { user } = useContext(AuthCustomContext);
-  const providerEmail = user?.email;
-  const providerName = user?.displayName;
-  const providerPhoto = user?.photoURL;
-  const navigate = useNavigate();
-
-  const handleAddService = async (e) => {
-    e.preventDefault();
-    const from = e.target;
-    const serviceImage = from.serviceUrl.value;
-    const serviceName = from.serviceName.value;
-    const servicePrice = from.price.value;
-    const serviceArea = from.serviceArea.value;
-    const description = from.description.value;
-
-    const providerData = {
-      serviceArea,
-      serviceImage,
-      serviceName,
-      servicePrice,
-      description,
-      providerEmail,
-      providerName,
-      providerPhoto,
-    };
-    console.log(providerData, "formdata");
-
-    // send data to server to database
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/eduServices",
-        providerData
-      );
-      console.log(response.data, "frist try");
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "You added successfully !",
-        showConfirmButton: false,
-        timer: 2000,
-      });
-      navigate("/manage");
-    } catch (err) {
-      console.log(err, "frist try catch");
-      toast.error(err.message);
+const Update = () => {
+    const updateLoaderData = useLoaderData() ;
+    // console.log(updateLoaderData, 'update');
+    const {description,serviceArea,serviceImage,serviceName,servicePrice} = updateLoaderData ;
+    const handleUpdate= (e) => {
+        e.preventDefault()
+        console.log('update button okay')
     }
-  };
-  return (
+    return (
+            
     <div className="my-10">
-      <Helmet> <title> Add Service | Simple service sharing web application </title> </Helmet>
+      <Helmet> <title> Update Service | Simple service sharing web application </title> </Helmet>
       <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="text-sm breadcrumbs">
         <ul>
           <li>
             <Link to="/"> Home </Link>
           </li>
           <li>
-            <Link> Add Service </Link>
+            <Link> Update Service </Link>
           </li>
         </ul>
       </div>
       <h1 data-aos="fade-down" data-aos-duration="2000" data-aos-delay="1000" className="text-center font-bold my-5 text-2xl underline ">
-        Add a Services
+      Update Service
       </h1>
       <div className=" p-10 ">
-        <form onSubmit={handleAddService}>
-          {/* form Category and details row */}
-          <div className="md:flex gap-8 my-5 ">
-            <label data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
-              <div className="label">
-                <span className="label-text">Provider Name</span>
-              </div>
-              <input
-                type="text"
-                defaultValue={providerName}
-                readOnly
-                name="name"
-                className="input input-bordered w-full"
-              />
-            </label>
-            <label data-aos="fade-left" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
-              <div className="label">
-                <span className="label-text"> Provider Email </span>
-              </div>
-              <input
-                type="email"
-                defaultValue={providerEmail}
-                readOnly
-                name="email"
-                className="input input-bordered w-full"
-              />
-            </label>
-          </div>
+        <form onSubmit={handleUpdate}>
           {/* form name and price row */}
           <div className="md:flex gap-8 my-5 ">
             <label data-aos="fade-right" data-aos-duration="2000" data-aos-delay="1000" className="form-control w-full">
@@ -107,8 +36,8 @@ const AddService = () => {
               </div>
               <input
                 type="text"
-                placeholder="Service Name"
                 name="serviceName"
+                defaultValue={serviceName}
                 className="input input-bordered w-full"
               />
             </label>
@@ -118,7 +47,7 @@ const AddService = () => {
               </div>
               <input
                 type="number"
-                placeholder="Price"
+                defaultValue={servicePrice}
                 name="price"
                 className="input input-bordered w-full"
               />
@@ -132,7 +61,7 @@ const AddService = () => {
               </div>
               <input
                 type="text"
-                placeholder="Service Area"
+                defaultValue={serviceArea}
                 name="serviceArea"
                 className="input input-bordered w-full"
               />
@@ -143,7 +72,7 @@ const AddService = () => {
               </div>
               <input
                 type="text"
-                placeholder="Image URL of the Service "
+                defaultValue={serviceImage}
                 name="serviceUrl"
                 className="input input-bordered w-full"
               />
@@ -156,11 +85,11 @@ const AddService = () => {
               <div className="label">
                 <span className="label-text">Description</span>
               </div>
-              <textarea
+              <textarea rows="10" cols="50"
                 className="input input-bordered w-full"
                 name="details"
                 id="description"
-                placeholder="Description"
+                defaultValue={description}
               ></textarea>
             </label>
           </div>
@@ -173,7 +102,8 @@ const AddService = () => {
         </form>
       </div>
     </div>
-  );
+ 
+    );
 };
 
-export default AddService;
+export default Update;

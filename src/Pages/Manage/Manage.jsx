@@ -7,6 +7,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import RelaventShow from "../../Component/RelaventShow/RelaventShow";
 
 const Manage = () => {
   const [bookData, setBookData] = useState([]);
@@ -29,7 +30,9 @@ const Manage = () => {
     getData();
   }, [userEmail]);
 
-
+if(myAddData.length <= 0){
+  return <RelaventShow> </RelaventShow>
+}
   if (loading) {
     return <p> loading...... </p>;
   }

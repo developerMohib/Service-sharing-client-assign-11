@@ -39,6 +39,7 @@ const Login = () => {
         title: "success!",
         text: 'You have logged in successfully!.'
       });
+      Navigete('/') ;
       <Navigate to={location.pathname} ></Navigate>
     })
     .catch((error) => {

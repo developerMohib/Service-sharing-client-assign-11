@@ -2,11 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import RelaventShow from "../../Component/RelaventShow/RelaventShow";
 
 const BookService = () => {
   const [bookData, setBookData] = useState([]);
   const { user, loading } = useContext(AuthCustomContext);
-  console.log(bookData , 'book data ')
+  // console.log(bookData , 'book data ')
 
   useEffect(() => {
     getData();
@@ -20,9 +21,14 @@ const BookService = () => {
         setBookData(data);
       });
   };
-
+  if(bookData.length <= 0){
+    return <RelaventShow> </RelaventShow>
+  }
   if (loading) {
-    return <p> loading...... </p>;
+    // return <p> loading......  </p> ;
+    return <span className="loading loading-ring loading-lg"></span>  ;
+
+    
   }
 
   return (

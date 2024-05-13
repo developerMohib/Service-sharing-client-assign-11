@@ -31,6 +31,7 @@ const Registration = () => {
       })
       .catch((error) => {
         console.log(error, "regiter teke eorr");
+        toast.error("Email already use !.")
       });
   };
 

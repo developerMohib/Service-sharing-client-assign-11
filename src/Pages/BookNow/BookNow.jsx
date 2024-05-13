@@ -63,11 +63,11 @@ const BookNow = () => {
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "You added successfully !",
+        title: "You purchase successfully !",
         showConfirmButton: false,
         timer: 2000,
       });
-      navigate("/manage");
+      navigate("/booked");
     } catch (err) {
       console.log(err, "frist try catch");
       toast.error(err.message);

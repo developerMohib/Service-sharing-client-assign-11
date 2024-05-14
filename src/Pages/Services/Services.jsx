@@ -2,53 +2,63 @@ import { Link } from "react-router-dom";
 import Filter from "../../Component/Filter/Filter";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
-
+import { IoSearch } from "react-icons/io5";
 
 const Services = () => {
-  const [allSerData, setAllSerData] = useState([]) ;
-  const [total, setTotal] = useState() ;
+  const [allSerData, setAllSerData] = useState([]);
+  const [total, setTotal] = useState();
+  const [search, setSearch] = useState('')
 
-  const [itemPerPage, setItemPerPage] = useState(6) ;
-  const [currentPage, setCurrentPage] = useState(0) ;
-  const numberOfPage = Math.ceil(total / itemPerPage) ;
+console.log(allSerData, 'aallllaa ')
+  const [itemPerPage, setItemPerPage] = useState(6);
+  const [currentPage, setCurrentPage] = useState(0);
+  const numberOfPage = Math.ceil(total / itemPerPage);
 
-  // data loader 
-  useEffect(()=>{
-    fetch(`http://localhost:5000/eduServices?page=${currentPage}&size=${itemPerPage}`)
-    .then(res=> res.json())
-    .then( data => {
-      setAllSerData(data)
-    })
-  },[currentPage,itemPerPage])
-  // data count loader 
-  useEffect(()=>{
+  // data loader
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/eduServices?page=${currentPage}&size=${itemPerPage}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setAllSerData(data);
+      });
+  }, [currentPage, itemPerPage]);
+  // data count loader
+  useEffect(() => {
     fetch(`http://localhost:5000/serviceCount`)
-    .then(res=> res.json())
-    .then( data => {
-      setTotal(data.countData)
-    })
-  },[])
-  
-  // page create 
-  const page = [ ] ;
-  for(let i = 0; i < numberOfPage; i++ ){
-    page.push(i)
+      .then((res) => res.json())
+      .then((data) => {
+        setTotal(data.countData);
+      });
+  }, []);
+
+  // page create
+  const page = [];
+  for (let i = 0; i < numberOfPage; i++) {
+    page.push(i);
   }
   const handlePageChange = (e) => {
-    const val = parseInt(e.target.value) ;
-    setItemPerPage(val)
-    setCurrentPage(0)
-  }
+    const val = parseInt(e.target.value);
+    setItemPerPage(val);
+    setCurrentPage(0);
+  };
   const handlePrev = () => {
-    if(currentPage > 0){
-      setCurrentPage(currentPage - 1)
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 1);
     }
-  }
+  };
   const handleNext = () => {
-    if(currentPage < page.length -1){
-      setCurrentPage(currentPage + 1)
+    if (currentPage < page.length - 1) {
+      setCurrentPage(currentPage + 1);
     }
-  }
+  };
+
+  // const handleSearch = (e) => {
+  //   e.preventDefault() ;
+    console.log(search, 'from serch')
+  // }
+
 
   return (
     <div>
@@ -57,23 +67,43 @@ const Services = () => {
         <title>Services | Simple service sharing web application</title>{" "}
       </Helmet>
       <Filter> </Filter>
-      <div> <h1 className="text-2xl text-center mt-10 " >My All Educational Services </h1> </div>
-      <div className=" md:flex justify-end items-center mr-20 mb-5" >
-          <h1 className="text-3xl mr-10" > Per Page </h1>
+      <div>
+        {" "}
+        <h1 className="text-2xl text-center mt-10 ">
+          My All Educational Services{" "}
+        </h1>{" "}
+      </div>
+      <div className=" md:flex justify-end items-center mr-20 mb-5">
+        <h1 className="text-3xl mr-10"> Per Page </h1>
         <p>Current page : {currentPage} </p>
-        <select onChange={handlePageChange} className="border border-slate-600 rounded-lg " value={itemPerPage} name="" id="">
-        <option value="6">6</option>
-        <option value="10">10</option>
-        <option value="20">20</option>
-        <option value="30">30</option>
+        <select
+          onChange={handlePageChange}
+          className="border border-slate-600 rounded-lg "
+          value={itemPerPage}
+          name=""
+          id=""
+        >
+          <option value="6">6</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
         </select>
+      </div>
+      {/* search function */}
+      <div>
+        <label className="input input-bordered flex items-center gap-2">
+          <input onChange={(e) => setSearch(e.target.value)} type="text" className="grow" placeholder="Type here" />
+          <IoSearch className="text-xl" > </IoSearch>
+        </label>
       </div>
       <section
         data-aos="fade-up"
         data-aos-duration="3000"
         className="container grid grid-cols-3 md:gap-8 rounded-lg gap-5 mx-auto antialiased "
       >
-        {allSerData?.map((serviceCard) => (
+        {allSerData?.filter((item) => {
+          return search.toLowerCase() === '' ? item : item.serviceName.toLowerCase().includes(search)
+        }).map((serviceCard) => (
           <article
             key={serviceCard._id}
             className="md:flex-nowrap shadow-lg mx-auto group cursor-pointer transform duration-500 hover:-translate-y-1 my-10 bg-base-300 p-5 "
@@ -98,7 +128,11 @@ const Services = () => {
                   {serviceCard.description.substring(0, 200)}
                 </p>
               </div>
-              <div data-aos="fade-up" data-aos-duration="2000" className="bg-blue-50 p-5">
+              <div
+                data-aos="fade-up"
+                data-aos-duration="2000"
+                className="bg-blue-50 p-5"
+              >
                 <div className="mt-3 text-gray-600 text-sm md:text-sm">
                   *Places to visit: Mahasthangarh, Vasu Bihar &amp; Momo Inn
                 </div>
@@ -154,7 +188,11 @@ const Services = () => {
                   </div>
                 </div>
                 {/* author */}
-                <div data-aos="fade-up" data-aos-duration="2000" className="sm:flex sm:justify-between mt-10">
+                <div
+                  data-aos="fade-up"
+                  data-aos-duration="2000"
+                  className="sm:flex sm:justify-between mt-10"
+                >
                   <div className="flex gap-4 ">
                     <img
                       className="object-cover h-10 rounded-full"
@@ -183,15 +221,30 @@ const Services = () => {
           </article>
         ))}
       </section>
-      <div className="text-center mb-10 " >
+      <div className="text-center mb-10 ">
         <p>Current page : {currentPage} </p>
-        <button onClick={handlePrev} className="btn btn-outline" >Prev</button>
-        {
-          page?.map(page => <button onClick={() => setCurrentPage(page)} className={`${currentPage === page ? 'mx-2 btn btn-outline bg-orange-500' : 'mx-2 btn btn-outline'}`} key={page} > {page} </button>)
-        }
-        <button onClick={handleNext} className="btn btn-outline" >Next</button>
+        <button onClick={handlePrev} className="btn btn-outline">
+          Prev
+        </button>
+        {page?.map((page) => (
+          <button
+            onClick={() => setCurrentPage(page)}
+            className={`${
+              currentPage === page
+                ? "mx-2 btn btn-outline bg-orange-500"
+                : "mx-2 btn btn-outline"
+            }`}
+            key={page}
+          >
+            {" "}
+            {page}{" "}
+          </button>
+        ))}
+        <button onClick={handleNext} className="btn btn-outline">
+          Next
+        </button>
       </div>
-      </div>
+    </div>
   );
 };
 

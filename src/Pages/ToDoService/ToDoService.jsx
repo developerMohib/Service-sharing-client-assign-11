@@ -4,19 +4,40 @@ import RelaventShow from "../../Component/RelaventShow/RelaventShow";
 import { useContext } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
 import toast from "react-hot-toast";
+// tanstack
 
 const ToDoService = () => {
   const { user } = useContext(AuthCustomContext);
-
   const loginUser = user?.email;
   const toDoData = useLoaderData();
+  // const [toDoData, setTodoData] = useState([] ) ;
+
+ 
+  
+  // const getData = () => {
+  //   // to do : which data she / he added
+  //   fetch(`http://localhost:5000/eduServices`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setTodoData(data);
+  //     });
+  // };
+  // useEffect(() => {
+  //   getData();
+  // }, [loginUser]);
 
   const filterData = toDoData.filter((data) => data.buyerEmail === loginUser);
+
 
 
   if (filterData.length <= 0) {
     return <RelaventShow> </RelaventShow>;
   }
+
+
+
+
+
 
   const handleChange = (e, id) => {
     e.preventDefault();
@@ -33,9 +54,10 @@ const ToDoService = () => {
       .then((data) => {
         console.log(data, "from fetch");
         if (data.modifiedCount > 0) {
-          toast.success("ok");
+          toast.success("Please Refresh to se update ");
         }
       });
+      // getData()
   };
 
   return (

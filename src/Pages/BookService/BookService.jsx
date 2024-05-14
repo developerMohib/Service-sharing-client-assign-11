@@ -15,7 +15,7 @@ const BookService = () => {
 
   const getData = () => {
     // to do : which data she / he added
-    fetch(`http://localhost:5000/bookedServices/${user?.email}`)
+    fetch(`https://service-sharing-server-tau.vercel.app/bookedServices/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setBookData(data);
@@ -33,7 +33,7 @@ const BookService = () => {
   return (
     <div>
       <Helmet> <title> My Booked | Simple service sharing web application </title> </Helmet>
-      <div data-aos="fade-right" data-aos-duration="2000"   className="text-sm breadcrumbs ">
+      <div data-aos="fade-up" data-aos-duration="2000"   className="text-sm breadcrumbs ">
         <ul>
           <li>
             <Link to='/' > Home </Link>
@@ -70,7 +70,7 @@ const BookService = () => {
             {/* row 1 */}
             {bookData?.map((data) => (
               <tr key={data._id}>
-                <td data-aos="fade-right" data-aos-duration="2000"  >
+                <td data-aos="fade-up" data-aos-duration="2000"  >
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
@@ -92,7 +92,7 @@ const BookService = () => {
                 <td data-aos="zoom-in" data-aos-duration="2000"  > $ {data.servicePrice}</td>
                 <td data-aos="zoom-in" data-aos-duration="2000"  >{data.buyerName}</td>
                 <td data-aos="zoom-in" data-aos-duration="2000"  >{data.currentUserEmail}</td>
-                <th data-aos="fade-left" data-aos-duration="2000"  >
+                <th data-aos="fade-up" data-aos-duration="2000"  >
                   <p> {data.status} </p>
                 </th>
               </tr>

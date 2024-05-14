@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Filter from "../../Component/Filter/Filter";
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import { IoSearch } from "react-icons/io5";
@@ -9,13 +8,13 @@ const Services = () => {
   const [total, setTotal] = useState();
   const [search, setSearch] = useState("");
   const [itemPerPage, setItemPerPage] = useState(6);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const numberOfPage = Math.ceil(total / itemPerPage);
 
   // data loader
   useEffect(() => {
     fetch(
-      `http://localhost:5000/eduServices?page=${currentPage}&size=${itemPerPage}`
+      `https://service-sharing-server-tau.vercel.app/eduServices?page=${currentPage}&size=${itemPerPage}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -24,7 +23,7 @@ const Services = () => {
   }, [currentPage, itemPerPage]);
   // data count loader
   useEffect(() => {
-    fetch(`http://localhost:5000/serviceCount`)
+    fetch(`https://service-sharing-server-tau.vercel.app/serviceCount`)
       .then((res) => res.json())
       .then((data) => {
         setTotal(data.countData);
@@ -33,21 +32,21 @@ const Services = () => {
 
   // page create
   const page = [];
-  for (let i = 0; i < numberOfPage; i++) {
+  for (let i = 1; i < numberOfPage + 1 ; i++) {
     page.push(i);
   }
   const handlePageChange = (e) => {
     const val = parseInt(e.target.value);
     setItemPerPage(val);
-    setCurrentPage(0);
+    setCurrentPage(1);
   };
   const handlePrev = () => {
-    if (currentPage > 0) {
+    if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
   };
   const handleNext = () => {
-    if (currentPage < page.length - 1) {
+    if (currentPage < page.length) {
       setCurrentPage(currentPage + 1);
     }
   };
@@ -58,16 +57,14 @@ const Services = () => {
         {" "}
         <title>Services | Simple service sharing web application</title>{" "}
       </Helmet>
-      <Filter> </Filter>
       <div>
         {" "}
         <h1 className="text-2xl text-center mt-10 ">
           My All Educational Services{" "}
         </h1>{" "}
       </div>
-      <div className=" md:flex justify-end items-center mr-20 mb-5">
-        <h1 className="text-3xl mr-10"> Per Page </h1>
-        <p>Current page : {currentPage} </p>
+      <div className=" md:flex justify-end items-center text-center md:mr-20 mb-5">
+        <p className="" >Current page : {currentPage} </p>
         <select
           onChange={handlePageChange}
           className="border border-slate-600 rounded-lg "
@@ -83,7 +80,7 @@ const Services = () => {
       </div>
       {/* search function */}
       <div>
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered w-4/5 mx-auto flex items-center gap-2">
           <input
             onChange={(e) => setSearch(e.target.value)}
             type="text"
@@ -96,7 +93,7 @@ const Services = () => {
       <section
         data-aos="fade-up"
         data-aos-duration="2000"
-        className="container grid grid-cols-3 md:gap-8 rounded-lg gap-5 mx-auto antialiased "
+        className="container md:grid grid-cols-3 md:gap-8 rounded-lg gap-5 mx-auto antialiased "
       >
         {allSerData
           ?.filter((item) => {
@@ -107,7 +104,7 @@ const Services = () => {
           .map((serviceCard) => (
             <article
               key={serviceCard._id}
-              className="md:flex-nowrap shadow-lg mx-auto group cursor-pointer transform duration-500 hover:-translate-y-1 my-10 bg-base-300 p-5 "
+              className="md:flex-nowrap shadow-lg mx-auto group cursor-pointer transform duration-500 hover:-translate-y-1 md:my-6 my-3 bg-base-300"
             >
               <img
                 data-aos="fade-up"
@@ -120,19 +117,19 @@ const Services = () => {
                 <div
                   data-aos="fade-up"
                   data-aos-duration="2000"
-                  className="p-5 pb-10"
+                  className="p-5"
                 >
                   <h1 className="text-2xl font-semibold text-gray-800 mt-4">
                     {serviceCard.serviceName}
                   </h1>
                   <p className="text-gray-400 mt-2 leading-relaxed">
-                    {serviceCard.description.substring(0, 200)}
+                    {serviceCard.description.substring(0, 100)}
                   </p>
                 </div>
                 <div
                   data-aos="fade-up"
                   data-aos-duration="2000"
-                  className="bg-blue-50 p-5"
+                  className="p-5"
                 >
                   <div className="mt-3 text-gray-600 text-sm md:text-sm">
                     *Places to visit: Mahasthangarh, Vasu Bihar &amp; Momo Inn
@@ -204,18 +201,18 @@ const Services = () => {
                         alt="Profle"
                       />
                       <div>
-                        <p className="font-semibold text-gray-700 dark:text-gray-200">
+                        <p className="font-semibold text-gray-700 text-sm dark:text-gray-200">
                           {serviceCard?.providerName}
                         </p>
 
-                        <p className="text-xs text-gray-600 dark:text-gray-300">
+                        <p className="text-xs text-gray-600 dark:text-gray-200">
                           21 SEP 2015
                         </p>
                       </div>
                     </div>
 
                     <Link to={`/serviceDetails/${serviceCard._id}`}>
-                      <button className="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-green-700 hover:bg-purple-600 text-white md:text-lg rounded-lg shadow-md">
+                      <button className="py-2 px-5 md:py-3 md:px-6 bg-green-700 hover:bg-purple-600 text-white rounded-lg shadow-md">
                         View details
                       </button>
                     </Link>
@@ -226,7 +223,7 @@ const Services = () => {
           ))}
       </section>
       <div className="text-center mb-10 ">
-        <p>Current page : {currentPage} </p>
+        <p>Current page : {currentPage } </p>
         <button onClick={handlePrev} className="btn btn-outline">
           Prev
         </button>

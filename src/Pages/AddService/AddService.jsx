@@ -37,7 +37,7 @@ const AddService = () => {
     // send data to server to database
     try {
       const response = await axios.post(
-        "http://localhost:5000/eduServices",
+        "https://service-sharing-server-tau.vercel.app/eduServices",
         providerData
       );
       console.log(response.data, "frist try");
@@ -57,7 +57,7 @@ const AddService = () => {
   return (
     <div className="my-10">
       <Helmet> <title> Add Service | Simple service sharing web application </title> </Helmet>
-      <div data-aos="fade-right" data-aos-duration="2000" className="text-sm breadcrumbs">
+      <div data-aos="fade-up" data-aos-duration="2000" className="text-sm breadcrumbs">
         <ul>
           <li>
             <Link to="/"> Home </Link>
@@ -74,7 +74,7 @@ const AddService = () => {
         <form onSubmit={handleAddService}>
           {/* form Category and details row */}
           <div className="md:flex gap-8 my-5 ">
-            <label data-aos="fade-right" data-aos-duration="2000" className="form-control w-full">
+            <label data-aos="fade-up" data-aos-duration="2000" className="form-control w-full">
               <div className="label">
                 <span className="label-text">Provider Name</span>
               </div>
@@ -86,7 +86,7 @@ const AddService = () => {
                 className="input input-bordered w-full"
               />
             </label>
-            <label data-aos="fade-left" data-aos-duration="2000" className="form-control w-full">
+            <label data-aos="fade-up" data-aos-duration="2000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Provider Email </span>
               </div>
@@ -101,7 +101,7 @@ const AddService = () => {
           </div>
           {/* form name and price row */}
           <div className="md:flex gap-8 my-5 ">
-            <label data-aos="fade-right" data-aos-duration="2000" className="form-control w-full">
+            <label data-aos="fade-up" data-aos-duration="2000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Service Name </span>
               </div>
@@ -112,7 +112,7 @@ const AddService = () => {
                 className="input input-bordered w-full"
               />
             </label>
-            <label data-aos="fade-left" data-aos-duration="2000" className="form-control w-full">
+            <label data-aos="fade-up" data-aos-duration="2000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Price </span>
               </div>
@@ -126,7 +126,7 @@ const AddService = () => {
           </div>
           {/* form service area and photo url row */}
           <div className="md:flex gap-8 my-5 ">
-            <label data-aos="fade-right" data-aos-duration="2000" className="form-control w-full">
+            <label data-aos="fade-up" data-aos-duration="2000" className="form-control w-full">
               <div className="label">
                 <span className="label-text"> Service Area </span>
               </div>
@@ -137,7 +137,7 @@ const AddService = () => {
                 className="input input-bordered w-full"
               />
             </label>
-            <label data-aos="fade-left" data-aos-duration="2000" className="form-control w-full">
+            <label data-aos="fade-up" data-aos-duration="2000" className="form-control w-full">
               <div className="label">
                 <span className="label-text">Service Photo URL</span>
               </div>

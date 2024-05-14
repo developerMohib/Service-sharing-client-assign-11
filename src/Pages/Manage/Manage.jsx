@@ -20,7 +20,7 @@ const Manage = () => {
 
   const getData = () => {
     // to do : which data she / he added
-    fetch(`http://localhost:5000/eduServices`)
+    fetch(`https://service-sharing-server-tau.vercel.app/eduServices`)
       .then((res) => res.json())
       .then((data) => {
         setBookData(data);
@@ -50,7 +50,7 @@ if(myAddData.length <= 0){
     }).then((result) => {
       if (result.isConfirmed) {
         axios.delete(
-          `http://localhost:5000/eduServices/${id}`
+          `https://service-sharing-server-tau.vercel.app/eduServices/${id}`
         )
         .then(data => {
           if(data.data.deletedCount > 0){
@@ -69,7 +69,7 @@ if(myAddData.length <= 0){
   return (
     <div>
       <Helmet> <title>Manage | Simple service sharing web application </title> </Helmet>
-      <div data-aos="fade-right"  data-aos-duration="2000" className="text-sm breadcrumbs ">
+      <div data-aos="fade-up"  data-aos-duration="2000" className="text-sm breadcrumbs ">
         <ul>
           <li>
             <Link to="/"> Home </Link>
@@ -106,7 +106,7 @@ if(myAddData.length <= 0){
             {/* row 1 */}
             {myAddData?.map((data) => (
               <tr key={data._id}>
-                <td data-aos="fade-right"  data-aos-duration="2000" >
+                <td data-aos="fade-up"  data-aos-duration="2000" >
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
@@ -128,7 +128,7 @@ if(myAddData.length <= 0){
                 <td data-aos="zoom-in"  data-aos-duration="2000" > $ {data.servicePrice}</td>
                 <td data-aos="zoom-in"  data-aos-duration="2000" >{data.providerName}</td>
                 <td data-aos="zoom-in"  data-aos-duration="2000" >{data.providerEmail}</td>
-                <th data-aos="fade-left"  data-aos-duration="2000" >
+                <th data-aos="fade-up"  data-aos-duration="2000" >
                   {/* update button  */}
                   <Link to={`/update/${data._id}`}>
                 <button className="btn btn-circle" > <FaRegEdit className="text-2xl" > </FaRegEdit> </button>

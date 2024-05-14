@@ -8,7 +8,7 @@ const Contact = () => {
         <Helmet> <title> Contact | Simple service sharing web application </title> </Helmet>
     </div>
     <section className="max-w-4xl my-10 p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800">
-      <h2 data-aos="fade-left" data-aos-duration="2000" className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
+      <h2 data-aos="fade-up" data-aos-duration="2000" className="text-lg font-semibold text-gray-700 capitalize dark:text-white">
         Drop a message to us{" "}
       </h2>
 

@@ -23,7 +23,7 @@ const Update = () => {
     const upData = {upName, upArea, upDescrip,upPhoto, upPrice} ;
 
     // data fetch to update
-    fetch(`http://localhost:5000/eduServices/${id}`, {
+    fetch(`https://service-sharing-server-tau.vercel.app/eduServices/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -58,7 +58,7 @@ const Update = () => {
         </title>{" "}
       </Helmet>
       <div
-        data-aos="fade-right"
+        data-aos="fade-up"
         data-aos-duration="2000"
         data-aos-delay="1000"
         className="text-sm breadcrumbs"
@@ -85,7 +85,7 @@ const Update = () => {
           {/* form name and price row */}
           <div className="md:flex gap-8 my-5 ">
             <label
-              data-aos="fade-right"
+              data-aos="fade-up"
               data-aos-duration="2000"
               data-aos-delay="1000"
               className="form-control w-full"
@@ -101,7 +101,7 @@ const Update = () => {
               />
             </label>
             <label
-              data-aos="fade-left"
+              data-aos="fade-up"
               data-aos-duration="2000"
               data-aos-delay="1000"
               className="form-control w-full"
@@ -120,7 +120,7 @@ const Update = () => {
           {/* form service area and photo url row */}
           <div className="md:flex gap-8 my-5 ">
             <label
-              data-aos="fade-right"
+              data-aos="fade-up"
               data-aos-duration="2000"
               data-aos-delay="1000"
               className="form-control w-full"
@@ -136,7 +136,7 @@ const Update = () => {
               />
             </label>
             <label
-              data-aos="fade-left"
+              data-aos="fade-up"
               data-aos-duration="2000"
               data-aos-delay="1000"
               className="form-control w-full"

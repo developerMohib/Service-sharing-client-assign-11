@@ -38,14 +38,14 @@ export const router = createBrowserRouter([
           path: "/services",
           element: <Services> </Services>,
           // loader: async () => {
-          //   return fetch(`http://localhost:5000/eduServices`)
+          //   return fetch(`https://service-sharing-server-tau.vercel.app/eduServices`)
           // }
         },
         {
           path: "/serviceDetails/:id",
           element: <PrivateRoute> <ServiceDetails> </ServiceDetails> </PrivateRoute>,
           loader: async ({ params }) => {
-            return fetch(`http://localhost:5000/eduServices/${params.id}`);
+            return fetch(`https://service-sharing-server-tau.vercel.app/eduServices/${params.id}`);
           },
         },
         {
@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
           path: "/todoservice",
           element: <PrivateRoute> <ToDoService> </ToDoService> </PrivateRoute>,
           loader: async () => {
-            return fetch(`http://localhost:5000/bookedServices`);
+            return fetch(`https://service-sharing-server-tau.vercel.app/bookedServices`);
           },
         },
         {
@@ -67,7 +67,7 @@ export const router = createBrowserRouter([
           path: "/update/:id",
           element: <PrivateRoute> <Update> </Update> </PrivateRoute>,
           loader: async ({params}) => {
-            return fetch(`http://localhost:5000/eduServices/${params.id}`);
+            return fetch(`https://service-sharing-server-tau.vercel.app/eduServices/${params.id}`);
           },
         },
         {
@@ -82,7 +82,7 @@ export const router = createBrowserRouter([
           path: "/booknow/:email",
           element: <PrivateRoute> <BookNow> </BookNow> </PrivateRoute> ,
           loader: async ({ params }) => {
-            return fetch(`http://localhost:5000/eduServices/${params.email}`);
+            return fetch(`https://service-sharing-server-tau.vercel.app/eduServices/${params.email}`);
           },
         },
       ],

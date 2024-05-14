@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { Link } from "react-router-dom";
 import { BiLogoPlayStore } from "react-icons/bi";
 
@@ -10,13 +10,16 @@ const Carrousel = () => {
   return (
     <div>
       <Swiper
-        autoplay={{ delay: 2000 }}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
         loop={true}
         pagination={{
           type: "fraction",
         }}
         navigation={true}
-        modules={[Pagination, Navigation]}
+        modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper rounded-lg "
       >
         <SwiperSlide>

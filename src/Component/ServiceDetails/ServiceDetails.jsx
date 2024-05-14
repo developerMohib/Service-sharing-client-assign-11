@@ -3,13 +3,13 @@ import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 import { Typewriter } from "react-simple-typewriter";
 import { AuthCustomContext } from "../../Provider/Provider";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 
 const ServiceDetails = () => {
   const { user } = useContext(AuthCustomContext);
   const detailsData = useLoaderData();
   const nowLoginUser = user.email;
-  // console.log(nowLoginUser, 'details data')
+
   const posterEmail = detailsData.providerEmail;
   const {
     serviceImage,
@@ -21,13 +21,14 @@ const ServiceDetails = () => {
     serviceArea,
     _id,
   } = detailsData;
-  // console.log(detailsData, "details page");
+  
   const handleDisabled = () =>{
     if(nowLoginUser === posterEmail) {
-      toast.error( 'You can not purchase your own post' );
-      
+      Swal.fire({
+        title: "You Can't buy your own product ",
+        icon: "question"
+      });
     }
-    
   }
   return (
     <div>
@@ -39,39 +40,37 @@ const ServiceDetails = () => {
       <div className="container px-6 py-16 mx-auto">
         <div className="items-center gap-10 lg:flex">
           <div
-            data-aos="fade-right"
+            data-aos="fade-up"
             data-aos-duration="2000"
             className="flex items-center justify-center w-full mt-6 lg:mt-0 lg:w-1/2"
           >
             <img
               className="w-full h-96 lg:max-w-3xl"
               src={serviceImage}
-              // src="https://merakiui.com/images/components/Catalogue-pana.svg"
               alt="Catalogue-pana.svg"
             />
           </div>
 
           <div
-            data-aos="fade-left"
+            data-aos="fade-up"
             data-aos-duration="2000"
             className="w-full lg:w-1/2"
           >
             <h1
-              data-aos="fade-left"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl"
             >
               {serviceName}
             </h1>
             <div
-              data-aos="fade-left"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="lg:max-w-lg"
             >
               <h1 className="text-3xl font-semibold text-gray-800 dark:text-white pt-8 lg:text-4xl">
                 Best place to choose <br />{" "}
                 <span className="text-red-700 font-bold text-xl">
-                  {/* Style will be inherited from the parent element */}
                   <Typewriter
                     words={[`${serviceName}`]}
                     loop={true}
@@ -86,14 +85,14 @@ const ServiceDetails = () => {
               {/* animation text  */}
 
               <p
-                data-aos="fade-left"
+                data-aos="fade-up"
                 data-aos-duration="2000"
                 className="mt-3 text-gray-600 dark:text-gray-400"
               >
                 {description}
               </p>
               <p
-                data-aos="fade-left"
+                data-aos="fade-up"
                 data-aos-duration="2000"
                 className="my-5"
               >
@@ -101,7 +100,7 @@ const ServiceDetails = () => {
                 <span className="font-bold ">Price :</span> {servicePrice}{" "}
               </p>
               <p
-                data-aos="fade-left"
+                data-aos="fade-up"
                 data-aos-duration="2000"
               >
                 {" "}
@@ -111,7 +110,7 @@ const ServiceDetails = () => {
               {/*  */}
               <div className="flex items-center justify-between ">
                 <div
-                  data-aos="fade-right"
+                  data-aos="fade-up"
                   data-aos-duration="2000"
                   className="flex items-center mt-5 "
                 >
@@ -132,7 +131,7 @@ const ServiceDetails = () => {
                 </div>
                 <div>
                   <div
-                    data-aos="fade-left"
+                    data-aos="fade-up"
                     data-aos-duration="2000"
                     className="relative inline-flex items-center px-8 py-2 overflow-hidden font-medium text-indigo-600 border border-indigo-600 rounded-full hover:text-white group hover:bg-gray-50"
                   >

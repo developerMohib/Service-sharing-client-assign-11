@@ -56,7 +56,7 @@ const BookNow = () => {
     // send data to server to database
     try {
       const response = await axios.post(
-        "http://localhost:5000/bookedServices",
+        "https://service-sharing-server-tau.vercel.app/bookedServices",
         bookedData
       );
       console.log(response.data, "frist try");
@@ -92,7 +92,7 @@ const BookNow = () => {
           {/* form Provider email and name row */}
           <div className="md:flex gap-8 my-5 ">
             <label
-              data-aos="fade-right"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="form-control w-full"
             >
@@ -108,7 +108,7 @@ const BookNow = () => {
               />
             </label>
             <label
-              data-aos="fade-left"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="form-control w-full"
             >
@@ -127,7 +127,7 @@ const BookNow = () => {
           {/* form Current User email and name row */}
           <div className="md:flex gap-8 my-5 ">
             <label
-              data-aos="fade-right"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="form-control w-full"
             >
@@ -143,7 +143,7 @@ const BookNow = () => {
               />
             </label>
             <label
-              data-aos="fade-left"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="form-control w-full"
             >
@@ -162,7 +162,7 @@ const BookNow = () => {
           {/* form Date and serviceId row */}
           <div className="md:flex gap-8 my-5 ">
             <label
-              data-aos="fade-right"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="form-control w-full"
             >
@@ -176,7 +176,7 @@ const BookNow = () => {
               />
             </label>
             <label
-              data-aos="fade-left"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="form-control w-full"
             >
@@ -194,7 +194,7 @@ const BookNow = () => {
           {/* form name and price row */}
           <div className="md:flex gap-8 my-5 ">
             <label
-              data-aos="fade-right"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="form-control w-full"
             >
@@ -210,7 +210,7 @@ const BookNow = () => {
               />
             </label>
             <label
-              data-aos="fade-left"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="form-control w-full"
             >
@@ -229,7 +229,7 @@ const BookNow = () => {
           {/* form service area and photo url row */}
           <div className="md:flex gap-8 my-5 ">
             <label
-              data-aos="fade-right"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="form-control w-full"
             >
@@ -244,7 +244,7 @@ const BookNow = () => {
               />
             </label>
             <label
-              data-aos="fade-left"
+              data-aos="fade-up"
               data-aos-duration="2000"
               className="form-control w-full"
             >

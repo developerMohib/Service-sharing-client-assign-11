@@ -81,23 +81,53 @@ const Navbar = () => {
       });
   };
 
+
+
   useEffect(() => {
     const localTheme = localStorage.getItem("theme");
-    setTheme(localTheme);
+    console.log("Local theme:", localTheme);
+    setTheme(localTheme || "light"); // Fallback to "light" theme if local storage is empty
   }, []);
-
+  
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    document.querySelector("html").setAttribute("data-theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+      console.log("Theme set to local storage:", theme);
+      document.querySelector("html").setAttribute("data-theme", theme);
+    } catch (error) {
+      console.error("Error setting theme to local storage:", error);
+    }
   }, [theme]);
-
+  
   const handleTheme = (e) => {
     if (e.target.checked) {
       setTheme("night");
+      console.log("Theme set to night");
     } else {
       setTheme("light");
+      console.log("Theme set to light");
     }
   };
+  
+  
+
+  // useEffect(() => {
+  //   const localTheme = localStorage.getItem("theme");
+  //   setTheme(localTheme);
+  // }, []);
+
+  // useEffect(() => {
+  //   localStorage.setItem("theme", theme);
+  //   document.querySelector("html").setAttribute("data-theme", theme);
+  // }, [theme]);
+
+  // const handleTheme = (e) => {
+  //   if (e.target.checked) {
+  //     setTheme("night");
+  //   } else {
+  //     setTheme("light");
+  //   }
+  // };
 
   return (
     <div>
@@ -120,7 +150,7 @@ const Navbar = () => {
               </div>
               <ul
                 tabIndex={0}
-                className={`menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-56 ${
+                className={`menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-56 ${
                   open === true ? "" : " hidden"
                 } `}
               >

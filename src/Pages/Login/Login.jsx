@@ -1,4 +1,4 @@
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate} from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
@@ -9,8 +9,8 @@ import { Helmet } from "react-helmet-async";
 const Login = () => {
   const { logInUser, signInGoogle} = useContext(AuthCustomContext);
   const notifyLogin = () => toast.success("Login successfully");
-  const Navigete = useNavigate();
   const location = useLocation() ;
+  const navigate = useNavigate() ;
   console.log(location, 'location')
   const handleLogin = (e) => {
     e.preventDefault();
@@ -23,24 +23,23 @@ const Login = () => {
       .then((result) => {
         console.log(result.user);
         notifyLogin();
+        navigate( location.state ? location.state : '/')
       })
       .catch((error) => {
         console.log(error);
       });
-      Navigete('/')
   };
 
   const handleGoogleLogin = () => {
     signInGoogle()
     .then((result) => {
       console.log(result.user);
+      navigate( location.state ? location.state : '/')
       Swal.fire({
         icon: 'success',
         title: "success!",
         text: 'You have logged in successfully!.'
       });
-      Navigete('/') ;
-      <Navigate to={location.pathname} ></Navigate>
     })
     .catch((error) => {
       console.error(error);

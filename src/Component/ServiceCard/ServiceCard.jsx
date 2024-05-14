@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ServiceCard = () => {
   const [homeServices, setHomeServies] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/eduServices`)
+    fetch(`https://service-sharing-server-tau.vercel.app/eduServices`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data, 'service data');
@@ -16,7 +16,7 @@ const ServiceCard = () => {
     <div>
       <div className="mt-10 md:mt-24 text-center ">
         <p
-          data-aos="fade-left"
+          data-aos="fade-up"
           data-aos-duration="2000"
           className="font-light text-2xl"
         >
@@ -31,7 +31,7 @@ const ServiceCard = () => {
           Online Lessons
         </h1>
         <p
-          data-aos="fade-right"
+          data-aos="fade-up"
           data-aos-duration="2000"
           className="text-lg font-light md:w-1/2 mx-auto mt-5"
         >
@@ -129,7 +129,7 @@ const ServiceCard = () => {
         ))}
       </div>
 
-      <div data-aos="fade-right" data-aos-duration="2000" data-aos-delay="2000" className="text-center my-10 ">
+      <div data-aos="fade-up" data-aos-duration="2000" data-aos-delay="2000" className="text-center my-10 ">
         {/* button  */}
         <Link
           to="/services"

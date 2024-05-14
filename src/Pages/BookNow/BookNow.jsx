@@ -82,7 +82,7 @@ const BookNow = () => {
       </Helmet>
       <h1
         data-aos="fade-down"
-        data-aos-duration="3000"
+        data-aos-duration="2000"
         className="text-center font-bold my-5 text-2xl underline "
       >
         Book Now
@@ -93,7 +93,7 @@ const BookNow = () => {
           <div className="md:flex gap-8 my-5 ">
             <label
               data-aos="fade-right"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
               className="form-control w-full"
             >
               <div className="label">
@@ -109,7 +109,7 @@ const BookNow = () => {
             </label>
             <label
               data-aos="fade-left"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
               className="form-control w-full"
             >
               <div className="label">
@@ -128,7 +128,7 @@ const BookNow = () => {
           <div className="md:flex gap-8 my-5 ">
             <label
               data-aos="fade-right"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
               className="form-control w-full"
             >
               <div className="label">
@@ -144,7 +144,7 @@ const BookNow = () => {
             </label>
             <label
               data-aos="fade-left"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
               className="form-control w-full"
             >
               <div className="label">
@@ -163,7 +163,7 @@ const BookNow = () => {
           <div className="md:flex gap-8 my-5 ">
             <label
               data-aos="fade-right"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
               className="form-control w-full"
             >
               <div className="label">
@@ -177,7 +177,7 @@ const BookNow = () => {
             </label>
             <label
               data-aos="fade-left"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
               className="form-control w-full"
             >
               <div className="label">
@@ -195,7 +195,7 @@ const BookNow = () => {
           <div className="md:flex gap-8 my-5 ">
             <label
               data-aos="fade-right"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
               className="form-control w-full"
             >
               <div className="label">
@@ -211,7 +211,7 @@ const BookNow = () => {
             </label>
             <label
               data-aos="fade-left"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
               className="form-control w-full"
             >
               <div className="label">
@@ -230,7 +230,7 @@ const BookNow = () => {
           <div className="md:flex gap-8 my-5 ">
             <label
               data-aos="fade-right"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
               className="form-control w-full"
             >
               <div className="label">
@@ -245,7 +245,7 @@ const BookNow = () => {
             </label>
             <label
               data-aos="fade-left"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
               className="form-control w-full"
             >
               <div className="label">
@@ -265,7 +265,7 @@ const BookNow = () => {
           <div className="my-5">
             <label
               data-aos="fade-up"
-              data-aos-duration="3000"
+              data-aos-duration="2000"
               className="form-control w-full"
             >
               <div className="label">
@@ -287,7 +287,7 @@ const BookNow = () => {
               forDisble === currentUserEmail ? "You can't able to purchase your own post " : ""
             }
             data-aos="fade-up"
-            data-aos-duration="3000"
+            data-aos-duration="2000"
             className=" btn border-none btn-block my-10 bg-success "
             type="submit"
             value="Purchase Now "

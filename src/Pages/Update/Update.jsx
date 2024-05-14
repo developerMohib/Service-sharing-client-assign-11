@@ -177,7 +177,7 @@ const Update = () => {
 
           <input
             data-aos="fade-up"
-            data-aos-duration="3000"
+            data-aos-duration="2000"
             data-aos-delay="1000"
             className=" btn border-none btn-block my-10 bg-success "
             type="submit"

@@ -59,7 +59,7 @@ const Carrousel = () => {
               </p>
 
               <div className="mt-12 flex flex-col justify-center gap-y-5 sm:mt-10 sm:flex-row sm:gap-y-0 sm:gap-x-6">
-                <Link data-aos="fade-up" data-aos-duration="3000" to='/services'
+                <Link data-aos="fade-up" data-aos-duration="2000" to='/services'
                   className="group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 bg-slate-900 text-white hover:bg-slate-700 hover:text-slate-100 active:bg-slate-800 active:text-slate-300 focus-visible:outline-slate-900 animate-fade-in-left"
                 >
                   <svg
@@ -81,7 +81,7 @@ const Carrousel = () => {
                   className="relative flex flex-1 flex-col items-stretch sm:flex-none"
                   data-headlessui-state=""
                 >
-                  <Link data-aos="fade-up" data-aos-duration="3000" data-aos-delay="1000"
+                  <Link data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000"
                     className="group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none ring-slate-200 text-white bg-orange-500 hover:bg-slate-700 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300 animate-fade-in-right"
                     id="headlessui-menu-button-:r4:"
                     aria-haspopup="true"

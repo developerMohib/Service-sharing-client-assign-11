@@ -2,11 +2,11 @@ const Blog = () => {
   return (
     <div className="bg-slate-200 p-5 my-10 rounded-lg">
       <div className="mt-10 text-center ">
-        <p data-aos="fade-right" data-aos-duration="3000" className="font-light text-2xl">Find What Fascinates You</p>
-        <h1 data-aos="fade-up" data-aos-duration="3000" className="md:text-4xl text-4xl md:font-extrabold font-semibold my-3 ">
+        <p data-aos="fade-right" data-aos-duration="2000" className="font-light text-2xl">Find What Fascinates You</p>
+        <h1 data-aos="fade-up" data-aos-duration="2000" className="md:text-4xl text-4xl md:font-extrabold font-semibold my-3 ">
           Online Lessons
         </h1>
-        <p data-aos="fade-left" data-aos-duration="3000" className="text-lg font-light md:w-1/2 mx-auto mt-5">
+        <p data-aos="fade-left" data-aos-duration="2000" className="text-lg font-light md:w-1/2 mx-auto mt-5">
           online classes have revolutionized the way people access education,
           making it more convenient, accessible, and flexible than ever before.
         </p>
@@ -15,14 +15,14 @@ const Blog = () => {
         {/* card - 1  */}
         <div className="max-w-screen-xl mx-auto border rounded-lg border-slate-400 ">
           <div className="rounded overflow-hidden flex flex-col max-w-xl mx-auto">
-            <a data-aos="fade-right" data-aos-duration="3000" >
+            <a data-aos="fade-right" data-aos-duration="2000" >
               <img
                 className="w-full"
                 src="https://images.pexels.com/photos/5120892/pexels-photo-5120892.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=625.0&amp;sharp=10&amp;w=1000"
                 alt="Sunset in the mountains"
               />
             </a>
-            <div data-aos="fade-right" data-aos-duration="3000" className="relative -mt-16 px-5 pt-5 pb-16 bg-base-200 hover:bg-slate-300 rounded-lg m-10">
+            <div data-aos="fade-right" data-aos-duration="2000" className="relative -mt-16 px-5 pt-5 pb-16 bg-base-200 hover:bg-slate-300 rounded-lg m-10">
               <a
                 href="#"
                 className="font-semibold text-lg hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2"
@@ -64,14 +64,14 @@ const Blog = () => {
         {/* card - 2  */}
         <div className="max-w-screen-xl mx-auto border rounded-lg border-slate-400 ">
           <div className="rounded overflow-hidden flex flex-col max-w-xl mx-auto">
-            <a data-aos="fade-up" data-aos-duration="3000">
+            <a data-aos="fade-up" data-aos-duration="2000">
               <img
                 className="w-full"
                 src="https://images.pexels.com/photos/5120892/pexels-photo-5120892.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=625.0&amp;sharp=10&amp;w=1000"
                 alt="Sunset in the mountains"
               />
             </a>
-            <div data-aos="fade-up" data-aos-duration="3000" className="relative -mt-16 px-5 pt-5 pb-16 bg-base-200 hover:bg-slate-300 rounded-lg m-10">
+            <div data-aos="fade-up" data-aos-duration="2000" className="relative -mt-16 px-5 pt-5 pb-16 bg-base-200 hover:bg-slate-300 rounded-lg m-10">
               <a
                 href="#"
                 className="font-semibold text-lg hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2"
@@ -113,14 +113,14 @@ const Blog = () => {
         {/* card - 3 */}
         <div className="max-w-screen-xl mx-auto border rounded-lg border-slate-400 ">
           <div className="rounded overflow-hidden flex flex-col max-w-xl mx-auto">
-            <a data-aos="fade-left" data-aos-duration="3000">
+            <a data-aos="fade-left" data-aos-duration="2000">
               <img
                 className="w-full"
                 src="https://images.pexels.com/photos/5120892/pexels-photo-5120892.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;h=625.0&amp;sharp=10&amp;w=1000"
                 alt="Sunset in the mountains"
               />
             </a>
-            <div data-aos="fade-left" data-aos-duration="3000" className="relative -mt-16 px-5 pt-5 pb-16 bg-base-200 hover:bg-slate-300 rounded-lg m-10">
+            <div data-aos="fade-left" data-aos-duration="2000" className="relative -mt-16 px-5 pt-5 pb-16 bg-base-200 hover:bg-slate-300 rounded-lg m-10">
               <a
                 href="#"
                 className="font-semibold text-lg hover:text-indigo-600 transition duration-500 ease-in-out inline-block mb-2"

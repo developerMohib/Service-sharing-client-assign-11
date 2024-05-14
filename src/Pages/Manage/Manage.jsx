@@ -65,32 +65,6 @@ if(myAddData.length <= 0){
       }
     });
   };
-  // const handleUpdate = (e) => {
-  //   e.preventDefault();
-  //   const serviceArea = e.target.serviceArea.value;
-  //   const serviceImage = e.target.serviceUrl.value;
-  //   const serviceName = e.target.serviceName.value;
-  //   const servicePrice = e.target.servicePrice.value;
-  //   const updateDoc = { serviceArea, serviceImage, serviceName, servicePrice };
-
-  //   // data fetch to update
-  //   fetch(`http://localhost:5000/eduServices`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(updateDoc),
-  //   })
-  //     .then((res) => res.json())
-  //     .then(() => {
-  //       toast.success("Update successful");
-  //     })
-  //     .catch((err) => {
-  //       toast.error(err.message);
-  //       console.error(err);
-  //     });
-  //   document.getElementById("my_modal_1").close();
-  // };
 
   return (
     <div>

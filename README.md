@@ -31,3 +31,4 @@ Currently, two official plugins are available:
 - [react-datepicker](https://www.npmjs.com/package/react-datepicker) react-datepicker
 - [react-helmet-async](https://www.npmjs.com/package/react-helmet-async) react-helmet-async
 - [aos](https://michalsnik.github.io/aos/) react-aos
+- [tanstack-query](https://tanstack.com/query/latest/docs/framework/react/installation) tanStack Query

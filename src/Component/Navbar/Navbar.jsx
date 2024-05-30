@@ -98,7 +98,6 @@ const Navbar = () => {
   useEffect(() => {
     try {
       localStorage.setItem("theme", theme);
-      console.log("Theme set to local storage:", theme);
       document.querySelector("html").setAttribute("data-theme", theme);
     } catch (error) {
       console.error("Error setting theme to local storage:", error);
@@ -115,26 +114,6 @@ const Navbar = () => {
     }
   };
   
-  
-
-  // useEffect(() => {
-  //   const localTheme = localStorage.getItem("theme");
-  //   setTheme(localTheme);
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("theme", theme);
-  //   document.querySelector("html").setAttribute("data-theme", theme);
-  // }, [theme]);
-
-  // const handleTheme = (e) => {
-  //   if (e.target.checked) {
-  //     setTheme("night");
-  //   } else {
-  //     setTheme("light");
-  //   }
-  // };
-
   return (
     <div>
       <div>

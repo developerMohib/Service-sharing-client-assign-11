@@ -14,8 +14,8 @@ const Courses = () => {
 
   return (
     <div>
-      <div className="flex">
-        <div className="bg-slate-400 w-1/4">
+      <div className="md:flex">
+        <div className="bg-slate-400 md:w-1/4">
           <h1 className="text-2xl font-semibold py-2 border-b text-center ">
             {" "}
             Our Courses{" "}
@@ -47,7 +47,7 @@ const Courses = () => {
           </div>
 
           {/* card here */}
-          <div className="grid grid-cols-2 gap-10">
+          <div className="md:grid grid-cols-2 gap-10">
             {
                 courseData?.slice(0,2).map(item => (<div key={item._id} className="rounded-md shadow-md bg-gray-50 text-gray-800">
                 <div className="flex items-center justify-between p-3">

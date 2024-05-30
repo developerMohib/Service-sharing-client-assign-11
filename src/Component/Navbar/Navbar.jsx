@@ -22,6 +22,12 @@ const Navbar = () => {
       >
         Services
       </NavLink>
+      <NavLink
+        className="px-1 py-1 mx-1 hover:border-b border-black"
+        to="/courses"
+      >
+        Courses
+      </NavLink>
 
       {user && (
         <>

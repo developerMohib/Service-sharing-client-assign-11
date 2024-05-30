@@ -15,6 +15,7 @@ import PrivateRoute from "./PrivateRoute";
 import ServiceDetails from "../Component/ServiceDetails/ServiceDetails";
 import BookNow from "../Pages/BookNow/BookNow";
 import Update from "../Pages/Update/Update";
+import Courses from "../Pages/Courses/Courses";
 
 export const router = createBrowserRouter([
     {
@@ -37,9 +38,10 @@ export const router = createBrowserRouter([
         {
           path: "/services",
           element: <Services> </Services>,
-          // loader: async () => {
-          //   return fetch(`https://service-sharing-server-tau.vercel.app/eduServices`)
-          // }
+        },
+        {
+          path: "/courses",
+          element: <Courses> </Courses>,
         },
         {
           path: "/serviceDetails/:id",

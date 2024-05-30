@@ -37,7 +37,6 @@ const Provider = ({children}) => {
     }
     // update profile 
     const updateProfileFromUser = (name, photoURL) => {
-        console.log(name, photoURL, 'provider')
         return updateProfile(auth.currentUser, {
             displayName: name, 
             photoURL: photoURL,

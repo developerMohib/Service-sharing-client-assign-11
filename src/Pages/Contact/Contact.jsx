@@ -1,7 +1,45 @@
 import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 const Contact = () => {
-  console.log("base url ", `${import.meta.env.VITE_baseURL}`);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const subject = e.target.textarea.value;
+    console.log('data ', name, email, subject)
+    e.target.reset();
+    try {
+      const visitorData = { name, email, subject };
+      const response = await fetch(`${import.meta.env.VITE_baseURL}/contact`, {
+        // Adding method type
+        method: "POST",
+        headers: {
+          "Content-type": "application/json ",
+        },
+        body: JSON.stringify(visitorData),
+      });
+      
+      if (response.ok) {
+        // Show success alert using SweetAlert
+        Swal.fire({
+          title: 'Success!',
+          text: 'Your message has been sent successfully!',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
+  
+        // Optionally, reset the form fields after successful submission
+        e.target.reset();
+      } else {
+        throw new Error('Failed to submit the form');
+      }
+  
+    } catch (error) {
+      console.error("Error submitting the form:", error);
+    }
+  };
+  
   return (
     <>
       <div>
@@ -27,7 +65,11 @@ const Contact = () => {
           </div>
           <div className="flex items-stretch justify-center">
             <div className="grid md:grid-cols-2">
-              <div data-aos="fade-right" data-aos-duration="2000" className="h-full pr-6">
+              <div
+                data-aos="fade-right"
+                data-aos-duration="2000"
+                className="h-full pr-6"
+              >
                 <p className="mt-3 mb-12 text-lg text-gray-600 dark:text-slate-400">
                   Class aptent taciti sociosqu ad litora torquent per conubia
                   nostra, per inceptos himenaeos. Duis nec ipsum orci. Ut
@@ -127,11 +169,16 @@ const Contact = () => {
                   </li>
                 </ul>
               </div>
-              <div  data-aos="fade-left" data-aos-duration="2000"  className="card h-fit max-w-6xl p-5 md:p-12" id="form">
+              <div
+                data-aos="fade-left"
+                data-aos-duration="2000"
+                className="card h-fit max-w-6xl p-5 md:p-12"
+                id="form"
+              >
                 <h2 className="mb-4 text-2xl font-bold dark:text-white">
                   Ready to Get Started?
                 </h2>
-                <form id="contactForm">
+                <form onSubmit={handleSubmit}>
                   <div className="mb-6">
                     <div className="mx-0 mb-1 sm:mb-4">
                       <div className="mx-0 mb-1 sm:mb-4">
@@ -179,12 +226,11 @@ const Contact = () => {
                     </div>
                   </div>
                   <div className="text-center">
-                    <button
+                    <input
+                      className="w-full cursor-pointer bg-blue-800 text-white px-6 py-3 font-xl rounded-md sm:mb-0"
                       type="submit"
-                      className="w-full bg-blue-800 text-white px-6 py-3 font-xl rounded-md sm:mb-0"
-                    >
-                      Send Message
-                    </button>
+                      value="Send Message"
+                    />
                   </div>
                 </form>
               </div>

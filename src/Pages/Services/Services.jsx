@@ -14,7 +14,7 @@ const Services = () => {
   // data loader
   useEffect(() => {
     fetch(
-      `https://service-sharing-server-tau.vercel.app/eduServices?page=${currentPage}&size=${itemPerPage}`
+      `${import.meta.env.VITE_baseURL}/eduServices?page=${currentPage}&size=${itemPerPage}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -23,7 +23,7 @@ const Services = () => {
   }, [currentPage, itemPerPage]);
   // data count loader
   useEffect(() => {
-    fetch(`https://service-sharing-server-tau.vercel.app/serviceCount`)
+    fetch(`${import.meta.env.VITE_baseURL}/serviceCount`)
       .then((res) => res.json())
       .then((data) => {
         setTotal(data.countData);

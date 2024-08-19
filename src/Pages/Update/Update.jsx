@@ -23,7 +23,7 @@ const Update = () => {
     const upData = {upName, upArea, upDescrip,upPhoto, upPrice} ;
 
     // data fetch to update
-    fetch(`https://service-sharing-server-tau.vercel.app/eduServices/${id}`, {
+    fetch(`${import.meta.env.VITE_baseURL}/eduServices/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

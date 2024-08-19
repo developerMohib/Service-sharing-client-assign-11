@@ -37,7 +37,7 @@ const AddService = () => {
     // send data to server to database
     try {
       const response = await axios.post(
-        "https://service-sharing-server-tau.vercel.app/eduServices",
+        `${import.meta.env.VITE_baseURL}/eduServices`,
         providerData
       );
       console.log(response.data, "frist try");

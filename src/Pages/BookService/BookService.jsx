@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from "react";
 import { AuthCustomContext } from "../../Provider/Provider";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
@@ -11,16 +11,18 @@ const BookService = () => {
 
   useEffect(() => {
     getData();
-  }, [user?.email]);
+  }, [user?.email,getData]);
 
-  const getData = () => {
+  const getData = useCallback(()=>{
     // to do : which data she / he added
-    fetch(`https://service-sharing-server-tau.vercel.app/bookedServices/${user?.email}`)
+    fetch(`${import.meta.env.VITE_baseURL}/bookedServices/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setBookData(data);
       });
-  };
+  },[user?.email])
+
+  // const getData = () => 
   
   if (loading) {
     // return <p> loading......  </p> ;

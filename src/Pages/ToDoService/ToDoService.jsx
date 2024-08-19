@@ -27,7 +27,7 @@ const ToDoService = () => {
     e.preventDefault();
     const status = e.target.value;
     // update single data
-    fetch(`https://service-sharing-server-tau.vercel.app/bookedServices/${id}`, {
+    fetch(`${import.meta.env.VITE_baseURL}/bookedServices/${id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",

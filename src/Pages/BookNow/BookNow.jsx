@@ -56,7 +56,7 @@ const BookNow = () => {
     // send data to server to database
     try {
       const response = await axios.post(
-        "https://service-sharing-server-tau.vercel.app/bookedServices",
+        `${import.meta.env.VITE_baseURL}/bookedServices`,
         bookedData
       );
       console.log(response.data, "frist try");

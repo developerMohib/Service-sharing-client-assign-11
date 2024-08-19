@@ -20,7 +20,7 @@ const Manage = () => {
 
   const getData = () => {
     // to do : which data she / he added
-    fetch(`https://service-sharing-server-tau.vercel.app/eduServices`)
+    fetch(`${import.meta.env.VITE_baseURL}/eduServices`)
       .then((res) => res.json())
       .then((data) => {
         setBookData(data);
@@ -50,7 +50,7 @@ if(myAddData.length <= 0){
     }).then((result) => {
       if (result.isConfirmed) {
         axios.delete(
-          `https://service-sharing-server-tau.vercel.app/eduServices/${id}`
+          `${import.meta.env.VITE_baseURL}/eduServices/${id}`
         )
         .then(data => {
           if(data.data.deletedCount > 0){

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ServiceCard = () => {
   const [homeServices, setHomeServies] = useState([]);
   useEffect(() => {
-    fetch(`https://service-sharing-server-tau.vercel.app/eduServices`)
+    fetch(`${import.meta.env.VITE_baseURL}/eduServices`)
       .then((res) => res.json())
       .then((data) => {
         // console.log(data, 'service data');

@@ -5,7 +5,7 @@ const Courses = () => {
     queryKey: ["course"],
     queryFn: async () => {
       const res = await fetch(
-        "https://service-sharing-server-tau.vercel.app/eduServices"
+        `${import.meta.env.VITE_baseURL}/eduServices`
       );
       const data = await res.json();
       return data;

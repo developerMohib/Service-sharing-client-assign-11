@@ -100,11 +100,11 @@ const Contact = () => {
                       <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
                         Our Address
                       </h3>
-                      <p className="text-gray-600 dark:text-slate-400">
+                      <p className="text-gray-600 text-sm dark:text-slate-400">
                         1230 Maecenas Street Donec Road
                       </p>
-                      <p className="text-gray-600 dark:text-slate-400">
-                        New York, EEUU
+                      <p className="text-gray-600 text-sm dark:text-slate-400">
+                        Sylhet, Bangladesh
                       </p>
                     </div>
                   </li>
@@ -131,11 +131,11 @@ const Contact = () => {
                       <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
                         Contact
                       </h3>
-                      <p className="text-gray-600 dark:text-slate-400">
-                        Mobile: +1 (123) 456-7890
+                      <p className="text-gray-600 text-sm dark:text-slate-400">
+                        Mobile: <a className="no-underline" href="tel:+8801706439736" > 8801706439736 </a>
                       </p>
-                      <p className="text-gray-600 dark:text-slate-400">
-                        Mail: tailnext@gmail.com
+                      <p className="text-gray-600 text-sm dark:text-slate-400">
+                        Mail: <a className="no-underline" href="mailto:mohibullahmohim2020@gmail.com" > mohibullahmohim2020@gmail.com </a>
                       </p>
                     </div>
                   </li>
@@ -161,11 +161,11 @@ const Contact = () => {
                       <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
                         Working hours
                       </h3>
-                      <p className="text-gray-600 dark:text-slate-400">
-                        Monday - Friday: 08:00 - 17:00
+                      <p className="text-gray-600 text-sm dark:text-slate-400">
+                      Sunday - Friday: 08:00 - 17:00
                       </p>
-                      <p className="text-gray-600 dark:text-slate-400">
-                        Saturday & Sunday: 08:00 - 12:00
+                      <p className="text-gray-600 text-sm dark:text-slate-400">
+                        Saturday : 08:00 - 12:00
                       </p>
                     </div>
                   </li>

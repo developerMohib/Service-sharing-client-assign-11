@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
 const Contact = () => {
@@ -8,6 +9,7 @@ const Contact = () => {
     const email = e.target.email.value;
     const subject = e.target.textarea.value;
     console.log('data ', name, email, subject)
+    toast.success(`Send succesfully, we will touch you asap. ${name} `)
     e.target.reset();
     try {
       const visitorData = { name, email, subject };

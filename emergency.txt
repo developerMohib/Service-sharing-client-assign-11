@@ -1,0 +1,8 @@
+VITE_apiKey=AIzaSyD6VonSrpY5bZQH4-UJCeMB-ffOI_hbS1M
+VITE_authDomain=service-sharing-47bd4.firebaseapp.com
+VITE_projectId=service-sharing-47bd4
+VITE_storageBucket=service-sharing-47bd4.appspot.com
+VITE_messagingSenderId=527415966488
+VITE_appId=1:527415966488:web:94f321432bed913cfa7c6d
+
+VITE_baseURL=https://service-sharing-server-tau.vercel.app

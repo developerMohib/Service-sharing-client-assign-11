@@ -1,4 +1,4 @@
-VITE_apiKey=AIzaSyD6VonSrpY5bZQH4-UJCeMB-ffOI_hbS1M
+VITE_apiKey=AIzaSy  (no gap) D6VonSrpY5bZQH4-UJCeMB-ffOI_hbS1M
 VITE_authDomain=service-sharing-47bd4.firebaseapp.com
 VITE_projectId=service-sharing-47bd4
 VITE_storageBucket=service-sharing-47bd4.appspot.com
